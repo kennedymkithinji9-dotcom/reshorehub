@@ -493,8 +493,8 @@
       background: var(--navy-mid);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 24px;
-      width: 100%; max-width: 720px;
-      max-height: 90vh;
+      width: 100%; max-width: 760px;
+      height: 92vh;
       display: flex; flex-direction: column;
       overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,0.6);
@@ -504,7 +504,7 @@
 
     .survey-modal-header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 28px;
+      padding: 20px 28px;
       border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
@@ -530,16 +530,29 @@
     .survey-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); }
 
     .survey-modal-body {
-      flex: 1; overflow: hidden;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
       display: flex; flex-direction: column;
+      /* Custom scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.15) transparent;
     }
+    .survey-modal-body::-webkit-scrollbar { width: 6px; }
+    .survey-modal-body::-webkit-scrollbar-track { background: transparent; }
+    .survey-modal-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 99px; }
+
     .survey-modal-body iframe {
-      flex: 1; width: 100%; border: none;
-      min-height: 520px;
+      width: 100%;
+      border: none;
       background: white;
+      /* Tall enough that Google Form's submit button is never clipped.
+         The modal body scrolls, so the iframe can be as tall as it needs. */
+      height: 900px;
+      flex-shrink: 0;
     }
     .survey-modal-footer {
-      padding: 14px 28px;
+      padding: 12px 28px;
       border-top: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
       font-size: 0.78rem; color: var(--slate);
@@ -1020,7 +1033,7 @@
       <iframe
         id="survey-iframe"
         src=""
-        data-src="https://docs.google.com/forms/d/e/1FAIpQLScrrzZF1SujPQODG0K9PJfq73PbN93AExcDg0kPvzgqXs97Tw/viewform?embedded=true"
+        data-src="https://docs.google.com/forms/d/1Bf7lcrpAwG6Mkvy9wESKp_jAnqWcFrHPR0M-sSXI2hs/viewform?embedded=true"
         title="ReshoreHub Platform Survey"
         loading="lazy"
         allow="accelerometer"
@@ -1028,7 +1041,7 @@
     </div>
     <div class="survey-modal-footer">
       <span>🔒 Your responses are anonymous and go directly to our product team.</span>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScrrzZF1SujPQODG0K9PJfq73PbN93AExcDg0kPvzgqXs97Tw/viewform" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <a href="https://docs.google.com/forms/d/1Bf7lcrpAwG6Mkvy9wESKp_jAnqWcFrHPR0M-sSXI2hs/viewform" target="_blank" rel="noopener">Open in new tab ↗</a>
     </div>
   </div>
 </div>
@@ -1036,26 +1049,30 @@
 <!-- TOAST -->
 <div id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── Survey Modal (globally scoped so inline onclick handlers can reach them)
-  window.openSurvey = function(e) {
+<script>
+  /* ── SURVEY FUNCTIONS — isolated script tag to guarantee global scope
+       even if Cloudflare or another injected script wraps the main block ── */
+  function openSurvey(e) {
     if (e) e.preventDefault();
-    const overlay = document.getElementById('survey-modal-overlay');
-    const iframe = document.getElementById('survey-iframe');
+    var overlay = document.getElementById('survey-modal-overlay');
+    var iframe  = document.getElementById('survey-iframe');
     if (!iframe.src || iframe.src === window.location.href) {
-      iframe.src = iframe.dataset.src;
+      iframe.src = iframe.getAttribute('data-src');
     }
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
-  };
-  window.closeSurvey = function() {
+  }
+  function closeSurvey() {
     document.getElementById('survey-modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
-  };
-  window.handleOverlayClick = function(e) {
-    if (e.target === document.getElementById('survey-modal-overlay')) window.closeSurvey();
-  };
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') window.closeSurvey(); });
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('survey-modal-overlay')) closeSurvey();
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSurvey(); });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
   // ── Nav scroll effect
   window.addEventListener('scroll', () => {
