@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U.S. Supplier Directory 2026 — Vetted Domestic Manufacturers | TariffReshore</title>
+  <meta name="description" content="Free U.S. supplier directory for SMEs. Filter 50+ vetted domestic manufacturers by sector, certification, and location. Beat tariffs with verified domestic alternatives." />
+  <meta name="keywords" content="US supplier directory, domestic manufacturers, reshoring suppliers, ITAR certified suppliers, AS9100 manufacturers, PCB suppliers USA" />
+  <meta property="og:title" content="U.S. Supplier Directory 2026 — TariffReshore" />
+  <meta property="og:description" content="50+ vetted U.S. manufacturers. Filter by sector, certification, location. Free, no account required." />
+  <link rel="canonical" href="https://tariffreshore.com/directory" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── DESIGN TOKENS (matches site) ── */
+    :root {
+      --navy:        #0a1628;
+      --navy-mid:    #112240;
+      --navy-light:  #1a3356;
+      --blue:        #1565c0;
+      --blue-bright: #1976d2;
+      --cyan:        #00b4d8;
+      --cyan-light:  #90e0ef;
+      --amber:       #f59e0b;
+      --amber-light: #fcd34d;
+      --green:       #10b981;
+      --green-light: #34d399;
+      --red:         #ef4444;
+      --red-light:   #f87171;
+      --purple:      #8b5cf6;
+      --purple-light:#c4b5fd;
+      --white:       #ffffff;
+      --slate:       #64748b;
+      --slate-light: #94a3b8;
+      --border:      rgba(255,255,255,0.08);
+      --card-bg:     rgba(255,255,255,0.03);
+      --radius:      12px;
+      --radius-lg:   20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV (identical to site) ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    nav.scrolled { padding: 12px 48px; }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.35rem;
+      letter-spacing: -0.02em; color: var(--white); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue-bright));
+      border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--slate-light);
+      font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--cyan), var(--blue-bright));
+      color: var(--white) !important; padding: 9px 22px; border-radius: 8px;
+      font-weight: 600 !important; transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 120px 24px 64px;
+      max-width: 1280px; margin: 0 auto;
+      position: relative;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--slate); margin-bottom: 28px;
+    }
+    .breadcrumb a { color: var(--cyan); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .page-header-inner {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 32px;
+    }
+    .page-header-text { flex: 1; min-width: 280px; }
+    .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 14px;
+    }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-title .accent {
+      background: linear-gradient(90deg, var(--cyan), var(--cyan-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .page-subtitle {
+      font-size: 1.05rem; color: var(--slate-light); line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* Header stats */
+    .header-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .hstat {
+      text-align: center;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px; min-width: 120px;
+    }
+    .hstat-val {
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--white), var(--cyan-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hstat-lbl { font-size: 0.75rem; color: var(--slate-light); margin-top: 4px; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      position: sticky; top: 72px; z-index: 50;
+      backdrop-filter: blur(16px);
+    }
+    .filter-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    }
+
+    /* Search input */
+    .search-wrap {
+      position: relative; flex: 1; min-width: 220px; max-width: 340px;
+    }
+    .search-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--slate); font-size: 1rem; pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; color: var(--white);
+      padding: 11px 14px 11px 40px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--cyan); }
+    .search-input::placeholder { color: var(--slate); }
+
+    /* Filter selects */
+    .filter-select {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; color: var(--white);
+      padding: 11px 36px 11px 14px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none;
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      transition: border-color 0.2s;
+      min-width: 160px;
+    }
+    .filter-select:focus { border-color: var(--cyan); }
+    .filter-select option { background: var(--navy-mid); }
+
+    /* Active filter chips */
+    .active-filters {
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+      margin-top: 12px; max-width: 1280px; margin-left: auto; margin-right: auto;
+    }
+    .active-filters:empty { display: none; }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.3);
+      color: var(--cyan); font-size: 0.78rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 99px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .filter-chip:hover { background: rgba(0,180,216,0.2); }
+    .filter-chip-x { font-size: 0.7rem; opacity: 0.7; }
+
+    .results-count {
+      margin-left: auto; font-size: 0.82rem; color: var(--slate-light);
+      white-space: nowrap;
+    }
+    .results-count strong { color: var(--cyan); }
+
+    /* ── MAIN LAYOUT ── */
+    .directory-layout {
+      max-width: 1280px; margin: 0 auto;
+      padding: 40px 24px 100px;
+    }
+
+    /* ── SECTOR TABS ── */
+    .sector-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .sector-tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 20px; border-radius: 99px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      border: 1px solid var(--border); background: var(--card-bg);
+      color: var(--slate-light); transition: all 0.2s;
+    }
+    .sector-tab:hover { border-color: rgba(0,180,216,0.4); color: var(--white); }
+    .sector-tab.active {
+      background: rgba(0,180,216,0.12); border-color: rgba(0,180,216,0.4);
+      color: var(--cyan);
+    }
+    .sector-tab .tab-count {
+      background: rgba(255,255,255,0.08); border-radius: 99px;
+      padding: 1px 8px; font-size: 0.72rem; color: var(--slate-light);
+    }
+    .sector-tab.active .tab-count { background: rgba(0,180,216,0.15); color: var(--cyan); }
+
+    /* ── SUPPLIER CARDS GRID ── */
+    .suppliers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .supplier-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .supplier-card:hover {
+      border-color: rgba(0,180,216,0.4);
+      background: rgba(0,180,216,0.03);
+      transform: translateY(-3px);
+    }
+
+    /* Sector color accent strip */
+    .supplier-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .supplier-card[data-sector="electronics"]::before { background: linear-gradient(90deg, var(--cyan), var(--blue-bright)); }
+    .supplier-card[data-sector="defense"]::before     { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .supplier-card[data-sector="auto"]::before        { background: linear-gradient(90deg, var(--amber), var(--amber-light)); }
+    .supplier-card[data-sector="medical"]::before     { background: linear-gradient(90deg, var(--green), var(--green-light)); }
+    .supplier-card[data-sector="metals"]::before      { background: linear-gradient(90deg, var(--slate), var(--slate-light)); }
+    .supplier-card[data-sector="ems"]::before         { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+
+    /* Card header */
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .card-logo-wrap {
+      width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    }
+    .card-name-wrap { flex: 1; }
+    .card-name {
+      font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800;
+      color: var(--white); margin-bottom: 4px; line-height: 1.2;
+    }
+    .card-location { font-size: 0.8rem; color: var(--slate-light); display: flex; align-items: center; gap: 4px; }
+    .card-location::before { content: '📍'; font-size: 0.72rem; }
+
+    /* Volume badge */
+    .volume-badge {
+      flex-shrink: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 6px;
+    }
+    .vol-high   { background: rgba(16,185,129,0.12); color: var(--green-light); border: 1px solid rgba(16,185,129,0.25); }
+    .vol-mid    { background: rgba(245,158,11,0.12); color: var(--amber-light); border: 1px solid rgba(245,158,11,0.25); }
+    .vol-low    { background: rgba(0,180,216,0.12);  color: var(--cyan);        border: 1px solid rgba(0,180,216,0.25); }
+    .vol-proto  { background: rgba(139,92,246,0.12); color: var(--purple-light);border: 1px solid rgba(139,92,246,0.25); }
+
+    /* Specialties text */
+    .card-specialties { font-size: 0.88rem; color: var(--slate-light); line-height: 1.6; }
+
+    /* Cert tags */
+    .card-certs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cert-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(0,180,216,0.08); border: 1px solid rgba(0,180,216,0.2);
+      color: var(--cyan-light); font-size: 0.7rem; font-weight: 600;
+      padding: 3px 9px; border-radius: 5px; letter-spacing: 0.04em;
+    }
+    .cert-tag::before { content: '✓'; font-size: 0.6rem; }
+
+    /* Sector tags */
+    .card-sectors { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sector-tag {
+      font-size: 0.7rem; font-weight: 600; padding: 3px 9px; border-radius: 5px;
+    }
+    .st-electronics { background: rgba(0,180,216,0.1);   color: var(--cyan-light); }
+    .st-defense     { background: rgba(239,68,68,0.1);   color: var(--red-light); }
+    .st-auto        { background: rgba(245,158,11,0.1);  color: var(--amber-light); }
+    .st-medical     { background: rgba(16,185,129,0.1);  color: var(--green-light); }
+    .st-metals      { background: rgba(100,116,139,0.15);color: var(--slate-light); }
+    .st-ems         { background: rgba(139,92,246,0.1);  color: var(--purple-light); }
+    .st-industrial  { background: rgba(249,115,22,0.1);  color: #fdba74; }
+    .st-telecom     { background: rgba(20,184,166,0.1);  color: #5eead4; }
+
+    /* Card footer */
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--cyan); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-turnaround { font-size: 0.75rem; color: var(--slate); }
+    .card-turnaround strong { color: var(--slate-light); }
+
+    /* ── NO RESULTS STATE ── */
+    .no-results {
+      display: none; grid-column: 1/-1; text-align: center; padding: 80px 24px;
+    }
+    .no-results.visible { display: block; }
+    .no-results-icon { font-size: 3rem; margin-bottom: 20px; }
+    .no-results h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;
+    }
+    .no-results p { color: var(--slate-light); margin-bottom: 24px; }
+
+    /* ── COMING SOON CARD ── */
+    .coming-soon-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg); padding: 28px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; gap: 10px;
+      min-height: 200px;
+    }
+    .coming-soon-card .cs-icon { font-size: 2rem; opacity: 0.4; }
+    .coming-soon-card p { font-size: 0.82rem; color: var(--slate); }
+    .coming-soon-card strong { color: var(--slate-light); }
+
+    /* ── SUGGEST A SUPPLIER BANNER ── */
+    .suggest-banner {
+      background: linear-gradient(135deg, rgba(0,180,216,0.07), rgba(21,101,192,0.07));
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: var(--radius-lg); padding: 32px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px; margin-top: 48px;
+    }
+    .suggest-banner h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;
+    }
+    .suggest-banner p { color: var(--slate-light); font-size: 0.9rem; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(0,180,216,0.4); color: var(--cyan);
+      padding: 11px 24px; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: rgba(0,180,216,0.1); border-color: var(--cyan); }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 56px 24px; margin-top: 80px; text-align: center;
+    }
+    .cta-strip-inner { max-width: 680px; margin: 0 auto; }
+    .cta-strip h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.025em; margin-bottom: 14px;
+    }
+    .cta-strip p { color: var(--slate-light); margin-bottom: 32px; font-size: 1rem; }
+    .cta-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+    .cta-tool-chip {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      padding: 7px 18px; border-radius: 99px; font-size: 0.82rem; color: rgba(255,255,255,0.75);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue-bright));
+      color: var(--white); padding: 14px 36px; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,180,216,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,180,216,0.45); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px 48px 36px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p { color: var(--slate-light); font-size: 0.88rem; max-width: 280px; line-height: 1.7; margin-top: 12px; }
+    .footer-links-group h4 {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate-light); margin-bottom: 14px;
+    }
+    .footer-links-group ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links-group a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-links-group a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto;
+      padding-top: 24px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      font-size: 0.78rem; color: var(--slate);
+    }
+
+    /* ── UTILITY ── */
+    .hidden { display: none !important; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .supplier-card { animation: fadeUp 0.4s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .page-header { padding-top: 96px; }
+      .suppliers-grid { grid-template-columns: 1fr; }
+      .header-stats { gap: 12px; }
+      .hstat { min-width: 90px; padding: 14px 16px; }
+      footer { padding: 40px 20px 24px; }
+      .suggest-banner { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .filter-inner { flex-direction: column; }
+      .search-wrap { max-width: 100%; }
+      .filter-select { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🏭</div>
+    tariffreshore
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#pain">Challenges</a></li>
+    <li><a href="/#features">Platform</a></li>
+    <li><a href="/#calculator">Calculator</a></li>
+    <li><a href="/directory.html" class="active">🏢 Supplier Directory</a></li>
+    <li><a href="/#blog">Resources</a></li>
+    <li><a href="/#signup" class="nav-cta">Get Free Guide</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="/">tariffreshore.com</a>
+    <span>/</span>
+    <span>Supplier Directory</span>
+  </div>
+
+  <div class="page-header-inner">
+    <div class="page-header-text">
+      <span class="section-label">🏢 Verified U.S. Suppliers</span>
+      <h1 class="page-title">
+        Domestic Supplier<br><span class="accent">Directory 2026</span>
+      </h1>
+      <p class="page-subtitle">
+        Vetted U.S. manufacturers filterable by sector, certification, location, and production volume. No consultants. No paywalls. Updated weekly.
+      </p>
+    </div>
+
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-val" id="total-count">28</div>
+        <div class="hstat-lbl">Verified Suppliers</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">6</div>
+        <div class="hstat-lbl">Sectors Covered</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">Free</div>
+        <div class="hstat-lbl">Always</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        class="search-input"
+        id="search-input"
+        placeholder="Search company, state, specialty..."
+        oninput="applyFilters()"
+      />
+    </div>
+
+    <select class="filter-select" id="filter-sector" onchange="applyFilters()">
+      <option value="">All Sectors</option>
+      <option value="electronics">⚡ Electronics / PCB</option>
+      <option value="defense">🛡 Defense &amp; Aerospace</option>
+      <option value="auto">🚗 Automotive</option>
+      <option value="medical">🏥 Medical Devices</option>
+      <option value="metals">⚙️ Metals &amp; Steel</option>
+      <option value="ems">🔧 Full EMS / Contract Mfg.</option>
+    </select>
+
+    <select class="filter-select" id="filter-cert" onchange="applyFilters()">
+      <option value="">All Certifications</option>
+      <option value="ITAR">ITAR</option>
+      <option value="AS9100">AS9100D</option>
+      <option value="ISO 9001">ISO 9001</option>
+      <option value="ISO 13485">ISO 13485 (Medical)</option>
+      <option value="MIL-SPEC">MIL-SPEC</option>
+      <option value="IATF 16949">IATF 16949 (Auto)</option>
+      <option value="IPC">IPC Class 3</option>
+    </select>
+
+    <select class="filter-select" id="filter-volume" onchange="applyFilters()">
+      <option value="">All Volume Tiers</option>
+      <option value="proto">Prototype / Quick-Turn</option>
+      <option value="low">Low Volume (&lt;500/mo)</option>
+      <option value="mid">Mid Volume</option>
+      <option value="high">High Volume</option>
+    </select>
+
+    <select class="filter-select" id="filter-region" onchange="applyFilters()">
+      <option value="">All Regions</option>
+      <option value="west">West Coast</option>
+      <option value="midwest">Midwest</option>
+      <option value="south">South / Texas</option>
+      <option value="northeast">Northeast</option>
+      <option value="southeast">Southeast / FL</option>
+    </select>
+
+    <span class="results-count" id="results-count">Showing <strong id="visible-count">28</strong> of 28 suppliers</span>
+  </div>
+
+  <div class="active-filters" id="active-filters"></div>
+</div>
+
+<!-- ── MAIN DIRECTORY ── -->
+<div class="directory-layout">
+
+  <!-- Sector Tab Pills -->
+  <div class="sector-tabs" id="sector-tabs">
+    <button class="sector-tab active" data-sector="" onclick="sectorTabClick(this, '')">
+      All <span class="tab-count">28</span>
+    </button>
+    <button class="sector-tab" data-sector="electronics" onclick="sectorTabClick(this, 'electronics')">
+      ⚡ Electronics / PCB <span class="tab-count">13</span>
+    </button>
+    <button class="sector-tab" data-sector="defense" onclick="sectorTabClick(this, 'defense')">
+      🛡 Defense <span class="tab-count">7</span>
+    </button>
+    <button class="sector-tab" data-sector="auto" onclick="sectorTabClick(this, 'auto')">
+      🚗 Automotive <span class="tab-count">3</span>
+    </button>
+    <button class="sector-tab" data-sector="medical" onclick="sectorTabClick(this, 'medical')">
+      🏥 Medical <span class="tab-count">4</span>
+    </button>
+    <button class="sector-tab" data-sector="metals" onclick="sectorTabClick(this, 'metals')">
+      ⚙️ Metals <span class="tab-count">2</span>
+    </button>
+    <button class="sector-tab" data-sector="ems" onclick="sectorTabClick(this, 'ems')">
+      🔧 Full EMS <span class="tab-count">5</span>
+    </button>
+  </div>
+
+  <!-- Supplier Cards Grid -->
+  <div class="suppliers-grid" id="suppliers-grid">
+
+    <!-- ── ELECTRONICS / PCB (13) ── -->
+
+    <div class="supplier-card" data-sector="electronics" data-certs="ITAR AS9100 ISO 9001 MIL-SPEC MIL-PRF-31032" data-volume="high" data-region="west" data-search="TTM Technologies Santa Ana California RF microwave HDI rigid-flex aerospace defense automotive">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔬</div>
+        <div class="card-name-wrap">
+          <div class="card-name">TTM Technologies</div>
+          <div class="card-location">Santa Ana, CA</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">North America's largest PCB manufacturer. Specializes in HDI, RF/microwave, rigid-flex, and advanced multilayer boards for aerospace, defense, automotive, and telecom.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">MIL-PRF-31032</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-auto">Automotive</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.ttm.com" target="_blank" rel="noopener" class="card-link">Visit ttm.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 3–6 wks standard</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="ITAR AS9100 ISO 9001 ISO 13485 MIL-SPEC MIL-PRF-55110 MIL-PRF-31032" data-volume="high" data-region="west" data-search="Sanmina Corporation San Jose California 70 layer backplane rigid-flex telecom defense medical">
+      <div class="card-header">
+        <div class="card-logo-wrap">🏭</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Sanmina Corporation</div>
+          <div class="card-location">San Jose, CA</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Fortune 500 manufacturer with 70+ layer PCB capability, rigid-flex, backplanes, and the broadest certification stack in the industry. 20 global facilities with U.S. flagship operations.</p>
+      <div class="card-certs">
+        <span class="cert-tag">MIL-PRF-55110</span>
+        <span class="cert-tag">MIL-PRF-31032</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">AS9100</span>
+        <span class="cert-tag">ISO 13485</span>
+        <span class="cert-tag">TL 9000</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-telecom">Telecom</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.sanmina.com" target="_blank" rel="noopener" class="card-link">Visit sanmina.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 4–8 wks standard</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="IPC ISO 9001 ITAR MIL-SPEC" data-volume="proto" data-region="midwest" data-search="Advanced PCB Advanced Circuits Aurora Colorado quick turn prototype same day HDI rigid-flex">
+      <div class="card-header">
+        <div class="card-logo-wrap">⚡</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Advanced PCB (Advanced Circuits)</div>
+          <div class="card-location">Aurora, CO</div>
+        </div>
+        <span class="volume-badge vol-proto">Quick-Turn</span>
+      </div>
+      <p class="card-specialties">20,000+ customers served. Industry leader in fast-turn PCB fabrication with same-day quoting, 24-hour prototypes, and competitive mid-volume production. Trusted by engineers nationwide.</p>
+      <div class="card-certs">
+        <span class="cert-tag">UL</span>
+        <span class="cert-tag">IPC Class 2 &amp; 3</span>
+        <span class="cert-tag">MIL-SPEC capable</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-industrial">Industrial</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.4pcb.com" target="_blank" rel="noopener" class="card-link">Visit 4pcb.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 24 hr – 5 days</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="ITAR IPC ISO 9001" data-volume="proto" data-region="west" data-search="Sierra Circuits Sunnyvale California HDI rigid-flex RF NPI quick turn 1 day">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔧</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Sierra Circuits</div>
+          <div class="card-location">Sunnyvale, CA</div>
+        </div>
+        <span class="volume-badge vol-proto">Quick-Turn</span>
+      </div>
+      <p class="card-specialties">Silicon Valley's premier NPI and quick-turn PCB specialist. Industry-leading HDI and rigid-flex capability with 1-day prototype services and some of the tightest domestic design rules available.</p>
+      <div class="card-certs">
+        <span class="cert-tag">IPC Class 2 &amp; 3</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">UL</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-defense">Defense</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.sierracircuits.com" target="_blank" rel="noopener" class="card-link">Visit sierracircuits.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 1–10 days</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="IPC ITAR" data-volume="proto" data-region="west" data-search="Bay Area Circuits Fremont California prototype low volume fast turnaround 1 to 20 layer">
+      <div class="card-header">
+        <div class="card-logo-wrap">🌊</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Bay Area Circuits</div>
+          <div class="card-location">Fremont, CA</div>
+        </div>
+        <span class="volume-badge vol-proto">Prototype</span>
+      </div>
+      <p class="card-specialties">Prototype and low-volume PCB specialist with a reputation for reliable quality and fast delivery on 1- to 20-layer boards. Accessible pricing for SME engineering teams.</p>
+      <div class="card-certs">
+        <span class="cert-tag">IPC Class 2 &amp; 3</span>
+        <span class="cert-tag">UL</span>
+        <span class="cert-tag">ITAR</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.bayareacircuits.com" target="_blank" rel="noopener" class="card-link">Visit bayareacircuits.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 3–10 days</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="AS9100 ITAR MIL-SPEC MIL-PRF-31032 ISO 9001" data-volume="mid" data-region="west" data-search="APCT Milpitas California advanced rigid-flex aerospace defense complex multilayer">
+      <div class="card-header">
+        <div class="card-logo-wrap">🛸</div>
+        <div class="card-name-wrap">
+          <div class="card-name">APCT Inc.</div>
+          <div class="card-location">Milpitas, CA</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">MIL-PRF-31032 qualified manufacturer specializing in advanced rigid-flex for mission-critical aerospace and defense programs. Complex multilayer capability with military-grade quality systems.</p>
+      <div class="card-certs">
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">MIL-PRF-31032</span>
+        <span class="cert-tag">ISO 9001</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-defense">Defense</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.apct.com" target="_blank" rel="noopener" class="card-link">Visit apct.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 4–8 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="ISO 9001 ITAR IPC" data-volume="low" data-region="northeast" data-search="Epec Engineered Technologies New Bedford Massachusetts flex PCB metal core battery custom">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔋</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Epec Engineered Technologies</div>
+          <div class="card-location">New Bedford, MA</div>
+        </div>
+        <span class="volume-badge vol-low">Low Volume</span>
+      </div>
+      <p class="card-specialties">Custom flex PCBs, metal-core PCBs, and custom battery pack manufacturing. Specializes in energy, industrial, and IoT applications where standard board houses fall short.</p>
+      <div class="card-certs">
+        <span class="cert-tag">UL</span>
+        <span class="cert-tag">RoHS</span>
+        <span class="cert-tag">ITAR capable</span>
+        <span class="cert-tag">IPC-A-600</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-industrial">Industrial</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.epectec.com" target="_blank" rel="noopener" class="card-link">Visit epectec.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 2–4 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="electronics" data-certs="MIL-SPEC ITAR ISO 9001" data-volume="mid" data-region="northeast" data-search="Compunetics Pittsburgh Pennsylvania high frequency RF controlled impedance multilayer radar wireless">
+      <div class="card-header">
+        <div class="card-logo-wrap">📡</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Compunetics</div>
+          <div class="card-location">Pittsburgh, PA</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">High-frequency and RF PCB specialist with deep expertise in controlled impedance boards for radar, wireless communications, and IoT applications. MIL-SPEC qualified facility.</p>
+      <div class="card-certs">
+        <span class="cert-tag">MIL-SPEC</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">ISO 9001</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-telecom">Telecom</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.compunetics.com" target="_blank" rel="noopener" class="card-link">Visit compunetics.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 3–6 wks</span>
+      </div>
+    </div>
+
+    <!-- ── DEFENSE & AEROSPACE (7) ── -->
+
+    <div class="supplier-card" data-sector="defense" data-certs="AS9100 ITAR ISO 9001 IPC" data-volume="high" data-region="south" data-search="Benchmark Electronics Angleton Texas complex PCB aerospace defense industrial medical">
+      <div class="card-header">
+        <div class="card-logo-wrap">🛡</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Benchmark Electronics</div>
+          <div class="card-location">Angleton, TX</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Global EMS provider with deep expertise in complex, high-reliability PCB assemblies for aerospace, defense, industrial, and medical sectors. Strong U.S. manufacturing footprint in Texas.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">IPC-A-610</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-industrial">Industrial</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.bench.com" target="_blank" rel="noopener" class="card-link">Visit bench.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 6–12 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="defense" data-certs="AS9100 ITAR ISO 9001 IPC" data-volume="mid" data-region="northeast" data-search="Zentech Manufacturing Baltimore Maryland PCB assembly box build defense aerospace medical IPC Class 3">
+      <div class="card-header">
+        <div class="card-logo-wrap">⚔️</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Zentech Manufacturing</div>
+          <div class="card-location">Baltimore, MD</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">IPC Class 3 certified PCB assembly and box build specialist. Serves defense, aerospace, and medical customers from its Mid-Atlantic facility with strong ITAR controls and quality management.</p>
+      <div class="card-certs">
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">IPC-A-610 Class 3</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+        <span class="sector-tag st-medical">Medical</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.zentechmfg.com" target="_blank" rel="noopener" class="card-link">Visit zentechmfg.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 4–8 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="defense" data-certs="ISO 9001 ITAR IPC" data-volume="mid" data-region="west" data-search="ISM Integrated Systems Manufacturing Sacramento California low mid volume complex assemblies industrial defense">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔩</div>
+        <div class="card-name-wrap">
+          <div class="card-name">ISM Integrated Systems Mfg.</div>
+          <div class="card-location">Sacramento, CA</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">Low-to-mid volume complex PCB assemblies for industrial automation, defense electronics, and critical infrastructure applications. IPC Class 3 qualified with strong ITAR controls.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">IPC-A-610 Class 3</span>
+        <span class="cert-tag">ITAR</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-industrial">Industrial</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.goism.com" target="_blank" rel="noopener" class="card-link">Visit goism.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 3–6 wks</span>
+      </div>
+    </div>
+
+    <!-- ── FULL EMS / CONTRACT MFG (5) ── -->
+
+    <div class="supplier-card" data-sector="ems" data-certs="AS9100 ITAR ISO 9001 IATF 16949 ISO 13485" data-volume="high" data-region="southeast" data-search="Jabil St Petersburg Florida full EMS PCB assembly automotive healthcare defense high mix">
+      <div class="card-header">
+        <div class="card-logo-wrap">🏗️</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Jabil</div>
+          <div class="card-location">St. Petersburg, FL</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Fortune 500 EMS provider with end-to-end PCB fabrication and assembly under one roof. Industry-leading for consolidating fab and assembly relationships for automotive, healthcare, and defense SMEs.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">IATF 16949</span>
+        <span class="cert-tag">ISO 13485</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-ems">Full EMS</span>
+        <span class="sector-tag st-auto">Automotive</span>
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-defense">Defense</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.jabil.com" target="_blank" rel="noopener" class="card-link">Visit jabil.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 8–14 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="ems" data-certs="AS9100 ITAR ISO 9001 ISO 13485" data-volume="high" data-region="midwest" data-search="Plexus Corp Neenah Wisconsin high reliability PCB assembly medical devices defense aerospace">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔬</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Plexus Corp</div>
+          <div class="card-location">Neenah, WI</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Specializes in high-reliability, highly regulated industries where failure is not an option. End-to-end EMS from design to supply chain management for medical devices, defense systems, and aerospace.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">FDA 21 CFR Part 820</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">ISO 13485</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-ems">Full EMS</span>
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-defense">Defense</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.plexus.com" target="_blank" rel="noopener" class="card-link">Visit plexus.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 8–16 wks</span>
+      </div>
+    </div>
+
+    <!-- ── MEDICAL (2 additional) ── -->
+
+    <div class="supplier-card" data-sector="medical" data-certs="ISO 13485 ISO 9001 FDA ITAR" data-volume="mid" data-region="midwest" data-search="Integer Holdings Clarence New York medical devices implantable cardiac neurostimulation">
+      <div class="card-header">
+        <div class="card-logo-wrap">❤️</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Integer Holdings</div>
+          <div class="card-location">Clarence, NY</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">Leading medical device manufacturer specializing in implantable devices, cardiac rhythm management components, and neuromodulation systems. FDA-registered with ISO 13485 quality management.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 13485</span>
+        <span class="cert-tag">FDA 21 CFR</span>
+        <span class="cert-tag">ISO 9001</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.integer.net" target="_blank" rel="noopener" class="card-link">Visit integer.net →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 6–12 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="medical" data-certs="ISO 13485 ISO 9001 FDA ITAR AS9100" data-volume="mid" data-region="midwest" data-search="Sparton Corporation De Leon Springs Florida medical defense complex electronics assemblies">
+      <div class="card-header">
+        <div class="card-logo-wrap">🏥</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Sparton Corporation</div>
+          <div class="card-location">De Leon Springs, FL</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">Complex EMS for medical and defense markets. Expertise in ultrasound imaging systems, sonar electronics, and medical capital equipment requiring the most stringent quality and regulatory compliance.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 13485</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ITAR</span>
+        <span class="cert-tag">FDA</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-medical">Medical</span>
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-ems">Full EMS</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.sparton.com" target="_blank" rel="noopener" class="card-link">Visit sparton.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 8–14 wks</span>
+      </div>
+    </div>
+
+    <!-- ── AUTOMOTIVE (3) ── -->
+
+    <div class="supplier-card" data-sector="auto" data-certs="IATF 16949 ISO 9001 ITAR" data-volume="high" data-region="midwest" data-search="Flex Ltd automotive electronics manufacturing Detroit Michigan IATF 16949 EV components">
+      <div class="card-header">
+        <div class="card-logo-wrap">🚗</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Flex Ltd (US Facilities)</div>
+          <div class="card-location">Multiple U.S. Locations</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Global EMS leader with major U.S. automotive electronics manufacturing facilities. Specialized in EV power electronics, ADAS systems, body control modules, and safety-critical automotive assemblies.</p>
+      <div class="card-certs">
+        <span class="cert-tag">IATF 16949</span>
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ISO 13485</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-auto">Automotive</span>
+        <span class="sector-tag st-ems">Full EMS</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.flex.com" target="_blank" rel="noopener" class="card-link">Visit flex.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 8–16 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="auto" data-certs="IATF 16949 ISO 9001" data-volume="high" data-region="midwest" data-search="Gentex Corporation Zeeland Michigan automotive electronics mirrors cameras sensors ADAS">
+      <div class="card-header">
+        <div class="card-logo-wrap">🪟</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Gentex Corporation</div>
+          <div class="card-location">Zeeland, MI</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">Domestic manufacturer of automotive electronics, auto-dimming mirrors, camera monitoring systems, and HomeLink wireless technology. 100% U.S.-manufactured with a 50-year track record.</p>
+      <div class="card-certs">
+        <span class="cert-tag">IATF 16949</span>
+        <span class="cert-tag">ISO 9001</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-auto">Automotive</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.gentex.com" target="_blank" rel="noopener" class="card-link">Visit gentex.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> Quote-based</span>
+      </div>
+    </div>
+
+    <!-- ── METALS & STEEL (2) ── -->
+
+    <div class="supplier-card" data-sector="metals" data-certs="ISO 9001 AS9100" data-volume="high" data-region="midwest" data-search="Nucor Corporation Charlotte North Carolina steel sheet bar structural domestic">
+      <div class="card-header">
+        <div class="card-logo-wrap">⚙️</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Nucor Corporation</div>
+          <div class="card-location">Charlotte, NC (HQ)</div>
+        </div>
+        <span class="volume-badge vol-high">High Volume</span>
+      </div>
+      <p class="card-specialties">America's largest steel producer with 25+ U.S. mills. Produces sheet, bar, structural, plate, and tubular steel products. Key domestic supplier for manufacturers reshoring metal-intensive components from China.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">ISO 14001</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-metals">Metals</span>
+        <span class="sector-tag st-auto">Automotive</span>
+        <span class="sector-tag st-industrial">Industrial</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.nucor.com" target="_blank" rel="noopener" class="card-link">Visit nucor.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 2–6 wks</span>
+      </div>
+    </div>
+
+    <div class="supplier-card" data-sector="metals" data-certs="ISO 9001 AS9100 ITAR" data-volume="mid" data-region="midwest" data-search="Materion Mayfield Heights Ohio specialty alloys beryllium copper precision metals defense aerospace">
+      <div class="card-header">
+        <div class="card-logo-wrap">🔬</div>
+        <div class="card-name-wrap">
+          <div class="card-name">Materion Corporation</div>
+          <div class="card-location">Mayfield Heights, OH</div>
+        </div>
+        <span class="volume-badge vol-mid">Mid Volume</span>
+      </div>
+      <p class="card-specialties">U.S. manufacturer of high-performance specialty alloys, beryllium-copper, and precision strip metals for electronics, defense, and medical applications. Critical domestic source for specialty metal components.</p>
+      <div class="card-certs">
+        <span class="cert-tag">ISO 9001</span>
+        <span class="cert-tag">AS9100D</span>
+        <span class="cert-tag">ITAR</span>
+      </div>
+      <div class="card-sectors">
+        <span class="sector-tag st-metals">Metals</span>
+        <span class="sector-tag st-defense">Defense</span>
+        <span class="sector-tag st-electronics">Electronics</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://www.materion.com" target="_blank" rel="noopener" class="card-link">Visit materion.com →</a>
+        <span class="card-turnaround"><strong>Lead time:</strong> 4–10 wks</span>
+      </div>
+    </div>
+
+    <!-- COMING SOON PLACEHOLDERS — easy to replace with real cards -->
+    <div class="coming-soon-card" id="cs1">
+      <div class="cs-icon">🏗️</div>
+      <strong>More Suppliers Coming</strong>
+      <p>We add 5–10 new verified suppliers weekly. Know a great domestic manufacturer? Submit them below.</p>
+    </div>
+
+    <!-- NO RESULTS STATE -->
+    <div class="no-results" id="no-results">
+      <div class="no-results-icon">🔍</div>
+      <h3>No suppliers match your filters</h3>
+      <p>Try broadening your search, removing a filter, or check back next week as we add new suppliers.</p>
+      <button onclick="clearAllFilters()" style="background:rgba(0,180,216,0.12);border:1px solid rgba(0,180,216,0.3);color:var(--cyan);padding:10px 24px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.9rem;">Clear All Filters</button>
+    </div>
+
+  </div><!-- /suppliers-grid -->
+
+  <!-- Suggest a Supplier Banner -->
+  <div class="suggest-banner">
+    <div>
+      <h3>Know a great U.S. supplier we're missing?</h3>
+      <p>We verify every listing before publishing. Submit a supplier and we'll review it within 48 hours — free, forever.</p>
+    </div>
+    <a href="mailto:hello@tariffreshore.com?subject=Supplier Submission&body=Company Name:%0ALocation:%0AWebsite:%0ACertifications:%0ASpecialties:%0AWhy we should list them:" class="btn-outline">
+      + Submit a Supplier
+    </a>
+  </div>
+
+</div><!-- /directory-layout -->
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>Found Your Supplier? Now Run the Numbers.</h2>
+    <p>Use our free tariff calculator to model domestic vs. imported cost side-by-side before you commit to a new supplier relationship.</p>
+    <div class="cta-tools">
+      <span class="cta-tool-chip">🧮 BOM Tariff Calculator</span>
+      <span class="cta-tool-chip">📋 Supplier Qualification Checklist</span>
+      <span class="cta-tool-chip">📡 Policy Tracker</span>
+    </div>
+    <a href="/#calculator" class="btn-primary">Access Free Tools →</a>
+    <p style="margin-top:14px;font-size:0.78rem;color:var(--slate);">
+      Also see our deep-dive guide: <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">Top US PCB Suppliers in 2026 →</a>
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">🏭</div>
+        tariffreshore
+      </a>
+      <p>Free tools for U.S. SMEs to navigate 2026 tariffs, find domestic suppliers, and build resilient supply chains.</p>
+    </div>
+    <div class="footer-links-group">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="/directory.html">Supplier Directories</a></li>
+        <li><a href="/#calculator">Tariff Calculator</a></li>
+        <li><a href="/#features">Policy Trackers</a></li>
+        <li><a href="/#features">Guides &amp; Checklists</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/us-pcb-suppliers-2026.html">US PCB Suppliers 2026</a></li>
+        <li><a href="/#signup">Free 2026 Tariff Guide</a></li>
+        <li><a href="https://twitter.com/KennedyKit55114" target="_blank">Follow on X</a></li>
+        <li><a href="mailto:hello@tariffreshore.com">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Data Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 tariffreshore.com. All rights reserved.</span>
+    <span>Supplier data from public sources. Always verify certifications directly. Not financial or legal advice.</span>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── All supplier cards
+  const allCards = Array.from(document.querySelectorAll('.supplier-card'));
+  let activeFilters = { sector: '', cert: '', volume: '', region: '', search: '' };
+
+  // ── Sector tab click (syncs with dropdown)
+  function sectorTabClick(btn, sector) {
+    document.querySelectorAll('.sector-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('filter-sector').value = sector;
+    activeFilters.sector = sector;
+    applyFilters();
+  }
+
+  // ── Main filter engine
+  function applyFilters() {
+    activeFilters.sector  = document.getElementById('filter-sector').value;
+    activeFilters.cert    = document.getElementById('filter-cert').value;
+    activeFilters.volume  = document.getElementById('filter-volume').value;
+    activeFilters.region  = document.getElementById('filter-region').value;
+    activeFilters.search  = document.getElementById('search-input').value.toLowerCase().trim();
+
+    // Sync sector tabs with dropdown
+    document.querySelectorAll('.sector-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.sector === activeFilters.sector);
+    });
+
+    let visible = 0;
+    allCards.forEach(card => {
+      const show = matchesFilters(card);
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    // No results state
+    const noResults = document.getElementById('no-results');
+    const comingSoon = document.getElementById('cs1');
+    noResults.classList.toggle('visible', visible === 0);
+    if (comingSoon) comingSoon.classList.toggle('hidden', visible === 0);
+
+    // Update count
+    document.getElementById('visible-count').textContent = visible;
+
+    // Render active filter chips
+    renderChips();
+  }
+
+  function matchesFilters(card) {
+    const sector = card.dataset.sector || '';
+    const certs  = card.dataset.certs  || '';
+    const volume = card.dataset.volume || '';
+    const region = card.dataset.region || '';
+    const search = card.dataset.search || '';
+    const name   = (card.querySelector('.card-name')?.textContent || '').toLowerCase();
+    const spec   = (card.querySelector('.card-specialties')?.textContent || '').toLowerCase();
+
+    if (activeFilters.sector && sector !== activeFilters.sector) return false;
+    if (activeFilters.cert   && !certs.includes(activeFilters.cert)) return false;
+    if (activeFilters.volume && volume !== activeFilters.volume) return false;
+    if (activeFilters.region && region !== activeFilters.region) return false;
+    if (activeFilters.search) {
+      const haystack = search + ' ' + name + ' ' + spec;
+      if (!haystack.includes(activeFilters.search)) return false;
+    }
+    return true;
+  }
+
+  function renderChips() {
+    const wrap = document.getElementById('active-filters');
+    wrap.innerHTML = '';
+    const labels = {
+      sector: { electronics:'Electronics/PCB', defense:'Defense', auto:'Automotive', medical:'Medical', metals:'Metals', ems:'Full EMS' },
+      cert:   { 'ITAR':'ITAR', 'AS9100':'AS9100D', 'ISO 9001':'ISO 9001', 'ISO 13485':'ISO 13485', 'MIL-SPEC':'MIL-SPEC', 'IATF 16949':'IATF 16949', 'IPC':'IPC Class 3' },
+      volume: { proto:'Prototype', low:'Low Volume', mid:'Mid Volume', high:'High Volume' },
+      region: { west:'West Coast', midwest:'Midwest', south:'South/TX', northeast:'Northeast', southeast:'Southeast/FL' },
+    };
+    Object.entries(activeFilters).forEach(([key, val]) => {
+      if (!val || key === 'search') return;
+      const label = (labels[key] && labels[key][val]) || val;
+      const chip = document.createElement('span');
+      chip.className = 'filter-chip';
+      chip.innerHTML = label + ' <span class="filter-chip-x">✕</span>';
+      chip.onclick = () => {
+        if (key === 'sector') { document.getElementById('filter-sector').value = ''; }
+        else if (key === 'cert') { document.getElementById('filter-cert').value = ''; }
+        else if (key === 'volume') { document.getElementById('filter-volume').value = ''; }
+        else if (key === 'region') { document.getElementById('filter-region').value = ''; }
+        applyFilters();
+      };
+      wrap.appendChild(chip);
+    });
+    // Search chip
+    if (activeFilters.search) {
+      const chip = document.createElement('span');
+      chip.className = 'filter-chip';
+      chip.innerHTML = '"' + activeFilters.search + '" <span class="filter-chip-x">✕</span>';
+      chip.onclick = () => { document.getElementById('search-input').value = ''; applyFilters(); };
+      wrap.appendChild(chip);
+    }
+  }
+
+  function clearAllFilters() {
+    document.getElementById('filter-sector').value = '';
+    document.getElementById('filter-cert').value = '';
+    document.getElementById('filter-volume').value = '';
+    document.getElementById('filter-region').value = '';
+    document.getElementById('search-input').value = '';
+    applyFilters();
+  }
+
+  // Init count
+  document.getElementById('total-count').textContent = allCards.length;
+  document.getElementById('visible-count').textContent = allCards.length;
+  document.querySelector('.results-count').innerHTML =
+    'Showing <strong id="visible-count">' + allCards.length + '</strong> of ' + allCards.length + ' suppliers';
+</script>
+
+</body>
+</html>
