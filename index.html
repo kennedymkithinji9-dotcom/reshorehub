@@ -245,7 +245,8 @@
 
     /* ── BLOG SECTION (NEW) ── */
     .blog-section { padding: 100px 24px; max-width: 1200px; margin: auto; }
-    .blog-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+    .blog-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: auto auto; gap: 24px; margin-top: 56px; }
+    .blog-card-featured { grid-row: span 2; }
 
     /* Featured blog card */
     .blog-card-featured {
@@ -512,6 +513,7 @@
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="/directory" style="color:var(--cyan-light);">🏢 Supplier Directory</a></li>
     <li><a href="#blog">Resources</a></li>
+    <li><a href="/us-steel-suppliers-2026.html" style="color:var(--slate-light);">🔩 Steel Guide</a></li>
     <li><a href="#" onclick="openSurvey(event)" style="color:var(--amber)!important;font-weight:600;">📋 Take Survey</a></li>
     <li><a href="#signup" class="nav-cta">Get Free Guide</a></li>
   </ul>
@@ -591,7 +593,7 @@
             <ul class="feature-list">
               <li>Filter by NAICS code, region, and certifications (ISO, ITAR, AS9100)</li>
               <li>Pre-vetted for SME-compatible MOQs and lead times</li>
-              <li>Covers electronics, auto, textiles, metals, and more — <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">PCB guide available now</a></li>
+              <li>Covers electronics, auto, textiles, metals, and more — <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">PCB guide</a> &amp; <a href="/us-steel-suppliers-2026.html" style="color:var(--cyan);">Steel guide</a> available now</li>
               <li>Updated weekly with new entrants and capacity changes</li>
             </ul>
           </div>
@@ -662,7 +664,7 @@
             <h3>Checklists &amp; Readiness Guides</h3>
             <p>Structured, sector-specific playbooks that turn reshoring from an overwhelming project into a manageable roadmap. Start with our <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">US PCB Supplier Guide</a>.</p>
             <ul class="feature-list">
-              <li>Sector guides: <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">electronics</a>, automotive, textiles, and pharma</li>
+              <li>Sector guides: <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">electronics</a>, <a href="/us-steel-suppliers-2026.html" style="color:var(--cyan);">metals &amp; steel</a>, automotive, textiles, and pharma</li>
               <li>Step-by-step supplier qualification checklists</li>
               <li>Financial modeling templates for CFO review</li>
               <li>Risk assessment and contingency planning frameworks</li>
@@ -737,11 +739,25 @@
       </div>
     </a>
 
+    <a href="/us-steel-suppliers-2026.html" class="blog-card" style="border-color:rgba(239,68,68,0.2);">
+      <div class="blog-icon">🔩</div>
+      <div class="blog-tag" style="color:#f87171;">🔴 Crisis Update · Metals &amp; Steel</div>
+      <h3>Top US Steel Suppliers in 2026: Beat Section 232 Tariffs &amp; Middle East Disruption</h3>
+      <p>Hormuz closure + 25% Section 232 tariffs = landed steel costs up 40–60%. 12 vetted domestic mills with certifications, lead times, and direct links — plus a free savings calculator.</p>
+      <div class="blog-card-footer">
+        <span class="blog-meta">March 8, 2026 · 8 min read</span>
+        <span class="blog-read-more">Read the Guide →</span>
+      </div>
+    </a>
+
   </div>
 
-  <div style="text-align:center; margin-top: 40px;">
-    <a href="/us-pcb-suppliers-2026.html" class="btn-primary" style="display:inline-flex;">
-      View All Resources →
+  <div style="text-align:center; margin-top: 40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/us-steel-suppliers-2026.html" class="btn-primary" style="display:inline-flex;">
+      🔩 New: US Steel Suppliers Guide →
+    </a>
+    <a href="/us-pcb-suppliers-2026.html" class="btn-secondary" style="display:inline-flex;">
+      View PCB Guide →
     </a>
   </div>
 </section>
@@ -763,7 +779,7 @@
             <option value="electronics">Electronics / Semiconductors</option>
             <option value="auto">Automotive Parts</option>
             <option value="textiles">Textiles &amp; Apparel</option>
-            <option value="metals">Metals &amp; Steel</option>
+            <option value="metals">Metals &amp; Steel (Sec. 232)</option>
             <option value="pharma">Pharmaceuticals</option>
             <option value="other">Other</option>
           </select>
@@ -805,7 +821,7 @@
             <div class="value val-green" id="res-savings">—</div>
           </div>
         </div>
-        <p style="margin-top:20px;font-size:0.82rem;color:var(--slate-light);text-align:center;">Estimates based on current tariff schedules. <a href="#signup" style="color:var(--cyan);text-decoration:none;">Sign up for detailed BOM-level analysis →</a> · Or browse our <a href="/directory" style="color:var(--cyan);">supplier directory</a> to find domestic alternatives.</p>
+        <p style="margin-top:20px;font-size:0.82rem;color:var(--slate-light);text-align:center;">Estimates based on current tariff schedules. <a href="#signup" style="color:var(--cyan);text-decoration:none;">Sign up for detailed BOM-level analysis →</a> · Browse our <a href="/directory" style="color:var(--cyan);">supplier directory</a>, <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">PCB guide</a>, or <a href="/us-steel-suppliers-2026.html" style="color:var(--cyan);">steel guide</a>.</p>
       </div>
     </div>
   </div>
@@ -849,7 +865,7 @@
   <div class="signup-inner">
     <h2>Get Your Free 2026 Tariff Guide</h2>
     <p>Tariffs on PCBs from China? Add 10–25% to every board. TariffReshore.com gives you free <a href="/directory" style="color:var(--cyan);">U.S. supplier directories</a> — vetted, filtered, no guesswork. Upload your BOM, see real savings.</p>
-    <p>Join 1,200+ U.S. manufacturers and importers using tariffreshore to plan ahead. Free guide includes tariff schedules, incentive summaries, and a reshoring readiness checklist. Start with our <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">PCB Supplier Guide →</a></p>
+    <p>Join 1,200+ U.S. manufacturers and importers using tariffreshore to plan ahead. Free guide includes tariff schedules, incentive summaries, and a reshoring readiness checklist. Start with our <a href="/us-pcb-suppliers-2026.html" style="color:var(--cyan);">PCB Supplier Guide</a> or the new <a href="/us-steel-suppliers-2026.html" style="color:var(--cyan);">Steel Supplier Guide →</a></p>
     <form class="signup-form" id="signup-form" onsubmit="handleSignup(event)">
       <input type="email" name="email" placeholder="Enter your work email" required id="signup-email" />
       <button type="submit" class="btn-primary">Get the Guide →</button>
@@ -878,6 +894,7 @@
       <h4>Resources</h4>
       <ul>
         <li><a href="/us-pcb-suppliers-2026.html">US PCB Suppliers 2026</a></li>
+        <li><a href="/us-steel-suppliers-2026.html">US Steel Suppliers 2026</a></li>
         <li><a href="#" onclick="openSurvey(event)">User Survey</a></li>
         <li><a href="/cdn-cgi/l/email-protection#a6cdc3c8c8c3c2dfe6d4c3d5cec9d4c3ced3c488c5c9cb">Contact Us</a></li>
         <li><a href="https://twitter.com/KennedyKit55114" target="_blank">Follow on X</a></li>
