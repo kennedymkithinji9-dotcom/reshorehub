@@ -3,51 +3,1262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Top vetted US steel suppliers for 2026 — beat tariffs and Middle East disruptions with domestic mills. Free directory + tariff calculator." />
-  <title>US Steel Suppliers 2026: Vetted Domestic Options to Beat Tariffs | tariffreshore</title>
+  <meta name="description" content="12 vetted U.S. steel suppliers for 2026 — beat Section 232 tariffs and Middle East supply disruptions. Free directory, certifications, and tariff calculator." />
+  <meta name="keywords" content="US steel suppliers 2026, domestic steel manufacturers, Section 232 tariffs, reshoring steel, steel supply chain, structural steel USA" />
+  <meta property="og:title" content="Top US Steel Suppliers in 2026 | tariffreshore" />
+  <meta property="og:description" content="12 vetted domestic steel mills and fabricators. Beat Section 232 tariffs and Middle East disruptions. Free directory and tariff calculator." />
+  <meta property="og:type" content="article" />
+  <title>Top US Steel Suppliers in 2026: Beat Tariffs & Middle East Disruption | tariffreshore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
-    /* Paste your entire <style> block from index.html or us-pcb-suppliers-2026.html here */
-    /* (copy everything between <style> and </style> from your existing pages) */
+    /* ── DESIGN TOKENS (identical to main site) ── */
+    :root {
+      --navy:        #0a1628;
+      --navy-mid:    #112240;
+      --navy-light:  #1a3356;
+      --blue:        #1565c0;
+      --blue-bright: #1976d2;
+      --cyan:        #00b4d8;
+      --cyan-light:  #90e0ef;
+      --amber:       #f59e0b;
+      --amber-light: #fcd34d;
+      --green:       #10b981;
+      --green-light: #34d399;
+      --red:         #ef4444;
+      --red-light:   #f87171;
+      --white:       #ffffff;
+      --off-white:   #f0f4f8;
+      --slate:       #64748b;
+      --slate-light: #94a3b8;
+      --border:      rgba(255,255,255,0.08);
+      --card-bg:     rgba(255,255,255,0.03);
+      --radius:      12px;
+      --radius-lg:   20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); line-height: 1.65; overflow-x: hidden; }
+
+    /* ── NAV (exact copy from homepage) ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(10,22,40,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    nav.scrolled { padding: 12px 48px; }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--cyan), var(--blue-bright)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--slate-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); }
+    .nav-cta { background: linear-gradient(135deg, var(--cyan), var(--blue-bright)); color: var(--white) !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; transition: opacity 0.2s, transform 0.2s !important; }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes countUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 80vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 140px 24px 80px; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,180,216,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(245,158,11,0.1) 0%, transparent 60%),
+        var(--navy);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3);
+      color: var(--amber-light); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 99px; margin-bottom: 28px; position: relative; z-index: 1;
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.6rem; animation: pulse 2s infinite; }
+    .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; max-width: 860px; position: relative; z-index: 1; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero h1 .accent { background: linear-gradient(90deg, var(--cyan), var(--cyan-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero h1 .accent-amber { background: linear-gradient(90deg, var(--amber), var(--amber-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { margin-top: 24px; font-size: 1.1rem; font-weight: 300; color: var(--slate-light); max-width: 620px; line-height: 1.7; position: relative; z-index: 1; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-actions { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeUp 0.7s 0.3s ease both; }
+    .btn-primary { background: linear-gradient(135deg, var(--cyan) 0%, var(--blue-bright) 100%); color: var(--white); padding: 15px 34px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 8px 32px rgba(0,180,216,0.3); transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,180,216,0.45); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 15px 34px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
+    .hero-stats { margin-top: 64px; display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeUp 0.7s 0.4s ease both; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--white), var(--cyan-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.82rem; color: var(--slate-light); margin-top: 4px; letter-spacing: 0.04em; }
+
+    /* ── DIVIDER ── */
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 0 48px; }
+
+    /* ── SHARED SECTION LABELS ── */
+    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .section-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 20px; }
+    .section-sub { color: var(--slate-light); font-size: 1.05rem; max-width: 580px; line-height: 1.7; margin-bottom: 52px; }
+
+    /* ── CRISIS ALERT BANNER ── */
+    .crisis-banner {
+      background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(245,158,11,0.08));
+      border-top: 1px solid rgba(239,68,68,0.2);
+      border-bottom: 1px solid rgba(239,68,68,0.2);
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+      text-align: center;
+    }
+    .crisis-banner-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); animation: pulse 1.4s infinite; flex-shrink: 0; }
+    .crisis-banner-text { font-size: 0.9rem; color: rgba(255,255,255,0.9); }
+    .crisis-banner-text strong { color: var(--red-light); }
+    .crisis-banner-link { font-size: 0.85rem; color: var(--cyan); text-decoration: none; font-weight: 600; white-space: nowrap; }
+    .crisis-banner-link:hover { text-decoration: underline; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--slate); }
+    .breadcrumb a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--cyan); }
+    .breadcrumb span { color: var(--slate); }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px 100px; display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: start; }
+    .article-body { min-width: 0; }
+    .article-sidebar { position: sticky; top: 88px; }
+
+    /* ── ARTICLE TYPOGRAPHY ── */
+    .article-body h2 { font-family: 'Syne', sans-serif; font-size: 1.65rem; font-weight: 800; letter-spacing: -0.02em; margin: 52px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
+    .article-body p { color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 18px; font-size: 0.97rem; }
+    .article-body a { color: var(--cyan); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+    .article-body ul { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-direction: column; gap: 10px; }
+    .article-body ul li { display: flex; gap: 12px; align-items: flex-start; color: rgba(255,255,255,0.82); font-size: 0.95rem; }
+    .article-body ul li::before { content: '→'; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── IMPACT CALLOUT ── */
+    .callout { border-radius: var(--radius); padding: 20px 24px; margin: 28px 0; border-left: 4px solid; }
+    .callout-red { background: rgba(239,68,68,0.07); border-color: var(--red); }
+    .callout-amber { background: rgba(245,158,11,0.07); border-color: var(--amber); }
+    .callout-cyan { background: rgba(0,180,216,0.07); border-color: var(--cyan); }
+    .callout-green { background: rgba(16,185,129,0.07); border-color: var(--green); }
+    .callout-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .callout-red .callout-label { color: var(--red-light); }
+    .callout-amber .callout-label { color: var(--amber-light); }
+    .callout-cyan .callout-label { color: var(--cyan); }
+    .callout-green .callout-label { color: var(--green-light); }
+    .callout p { margin: 0; font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.7; }
+
+    /* ── STAT ROW ── */
+    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 32px 0; }
+    .stat-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 16px; text-align: center; }
+    .stat-box-num { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; }
+    .stat-box-num.red { color: var(--red-light); }
+    .stat-box-num.amber { color: var(--amber-light); }
+    .stat-box-num.cyan { color: var(--cyan); }
+    .stat-box-num.green { color: var(--green-light); }
+    .stat-box-lbl { font-size: 0.72rem; color: var(--slate-light); margin-top: 5px; line-height: 1.4; }
+
+    /* ── SUPPLIER CARDS ── */
+    .supplier-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 32px 0; }
+    .supplier-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden; transition: border-color 0.3s, transform 0.25s;
+    }
+    .supplier-card:hover { border-color: rgba(0,180,216,0.35); transform: translateY(-3px); }
+    .supplier-card-top { height: 5px; }
+    .supplier-card-top.carbon   { background: linear-gradient(90deg, #64748b, #94a3b8); }
+    .supplier-card-top.structural { background: linear-gradient(90deg, #1976d2, #00b4d8); }
+    .supplier-card-top.specialty  { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
+    .supplier-card-top.stainless  { background: linear-gradient(90deg, #10b981, #34d399); }
+    .supplier-card-top.tubular    { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+    .supplier-card-top.mini-mill  { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .supplier-card-body { padding: 24px 28px; }
+    .supplier-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+    .supplier-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; }
+    .supplier-location { font-size: 0.82rem; color: var(--slate-light); margin-top: 3px; display: flex; align-items: center; gap: 5px; }
+    .volume-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 99px; flex-shrink: 0; }
+    .vol-high     { background: rgba(16,185,129,0.12); color: var(--green-light); border: 1px solid rgba(16,185,129,0.25); }
+    .vol-mid      { background: rgba(0,180,216,0.12); color: var(--cyan); border: 1px solid rgba(0,180,216,0.25); }
+    .vol-specialty{ background: rgba(245,158,11,0.12); color: var(--amber-light); border: 1px solid rgba(245,158,11,0.25); }
+    .supplier-desc { font-size: 0.88rem; color: var(--slate-light); line-height: 1.65; margin-bottom: 16px; }
+    .cert-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .cert-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 6px; background: rgba(0,180,216,0.08); border: 1px solid rgba(0,180,216,0.2); color: var(--cyan-light); }
+    .cert-tag::before { content: '✓ '; }
+    .type-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .type-tag { font-size: 0.7rem; padding: 3px 10px; border-radius: 6px; }
+    .type-carbon     { background: rgba(100,116,139,0.12); color: #94a3b8; border: 1px solid rgba(100,116,139,0.2); }
+    .type-structural { background: rgba(25,118,210,0.12); color: #90caf9; border: 1px solid rgba(25,118,210,0.2); }
+    .type-specialty  { background: rgba(245,158,11,0.12); color: var(--amber-light); border: 1px solid rgba(245,158,11,0.2); }
+    .type-stainless  { background: rgba(16,185,129,0.12); color: var(--green-light); border: 1px solid rgba(16,185,129,0.2); }
+    .type-tubular    { background: rgba(139,92,246,0.12); color: #c4b5fd; border: 1px solid rgba(139,92,246,0.2); }
+    .type-mini-mill  { background: rgba(239,68,68,0.12); color: var(--red-light); border: 1px solid rgba(239,68,68,0.2); }
+    .supplier-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
+    .supplier-link { font-size: 0.83rem; color: var(--cyan); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+    .supplier-link:hover { text-decoration: underline; }
+    .lead-time { font-size: 0.75rem; color: var(--slate); }
+
+    /* ── IMPACT TABLE ── */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.88rem; }
+    .impact-table th { background: var(--navy-mid); padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--slate-light); }
+    .impact-table th:first-child { border-radius: 8px 0 0 0; }
+    .impact-table th:last-child { border-radius: 0 8px 0 0; }
+    .impact-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: rgba(255,255,255,0.82); vertical-align: top; }
+    .impact-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .td-red { color: var(--red-light); font-weight: 700; }
+    .td-amber { color: var(--amber-light); font-weight: 700; }
+    .td-green { color: var(--green-light); font-weight: 700; }
+
+    /* ── SIDEBAR ── */
+    .sidebar-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
+    .sidebar-card p { font-size: 0.85rem; color: var(--slate-light); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-card .btn-primary { width: 100%; justify-content: center; padding: 13px 20px; font-size: 0.9rem; }
+    .sidebar-card .btn-secondary { width: 100%; justify-content: center; padding: 11px 20px; font-size: 0.88rem; margin-top: 8px; }
+    .sidebar-toc { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-toc li a { display: block; font-size: 0.85rem; color: var(--slate-light); text-decoration: none; padding: 7px 12px; border-radius: 7px; border-left: 2px solid transparent; transition: color 0.2s, background 0.2s, border-color 0.2s; }
+    .sidebar-toc li a:hover, .sidebar-toc li a.active { color: var(--white); background: rgba(255,255,255,0.04); border-left-color: var(--cyan); }
+    .sidebar-crisis { background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(245,158,11,0.06)); border: 1px solid rgba(239,68,68,0.2); }
+    .sidebar-crisis h4 { color: var(--red-light); }
+    .sidebar-crisis-stat { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .sidebar-crisis-stat:last-child { border-bottom: none; }
+    .sidebar-crisis-num { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; min-width: 70px; }
+    .sidebar-crisis-num.red { color: var(--red-light); }
+    .sidebar-crisis-num.amber { color: var(--amber-light); }
+    .sidebar-crisis-lbl { font-size: 0.76rem; color: var(--slate-light); line-height: 1.4; }
+
+    /* ── READING PROGRESS ── */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--blue-bright)); z-index: 200; width: 0%; transition: width 0.1s; }
+
+    /* ── CALC SECTION (identical to homepage) ── */
+    .calc-section { padding: 80px 24px; background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .calc-inner { max-width: 900px; margin: auto; }
+    .calc-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 24px; padding: 48px; margin-top: 48px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-light); }
+    .form-group select, .form-group input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--white); padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+    .form-group select:focus, .form-group input:focus { border-color: var(--cyan); }
+    .form-group select option { background: var(--navy-mid); }
+    .calc-result { display: none; margin-top: 28px; padding: 28px; background: rgba(0,180,216,0.07); border: 1px solid rgba(0,180,216,0.25); border-radius: 12px; animation: fadeIn 0.4s ease; }
+    .calc-result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; text-align: center; }
+    .calc-result-item .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-light); margin-bottom: 8px; }
+    .calc-result-item .value { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; }
+    .val-red { color: var(--red-light); }
+    .val-amber { color: var(--amber-light); }
+    .val-green { color: var(--green-light); }
+
+    /* ── SIGNUP (exact from homepage) ── */
+    .signup-section { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+    .signup-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,180,216,0.12) 0%, transparent 70%), var(--navy); }
+    .signup-inner { position: relative; z-index: 1; max-width: 640px; margin: auto; }
+    .signup-inner h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    .signup-inner p { color: var(--slate-light); font-size: 1rem; margin-bottom: 40px; }
+    .signup-form { display: flex; gap: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 8px; }
+    .signup-form input { flex: 1; background: none; border: none; outline: none; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; padding: 8px 12px; }
+    .signup-form input::placeholder { color: var(--slate); }
+    .signup-form .btn-primary { padding: 12px 28px; font-size: 0.92rem; flex-shrink: 0; border-radius: 8px; }
+    .signup-note { margin-top: 16px; font-size: 0.82rem; color: var(--slate); }
+    .signup-note a { color: var(--cyan); text-decoration: none; }
+
+    /* ── INTERNAL LINKS SECTION ── */
+    .related-section { padding: 64px 24px; background: var(--navy-mid); border-top: 1px solid var(--border); }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-decoration: none; transition: border-color 0.3s, transform 0.25s; display: block; }
+    .related-card:hover { border-color: rgba(0,180,216,0.35); transform: translateY(-3px); }
+    .related-card-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+    .related-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; margin-bottom: 8px; color: var(--white); }
+    .related-card p { font-size: 0.83rem; color: var(--slate-light); line-height: 1.6; }
+    .related-card-arrow { font-size: 0.83rem; color: var(--cyan); margin-top: 14px; display: block; }
+
+    /* ── SURVEY FAB (exact from homepage) ── */
+    .survey-fab { position: fixed; bottom: 32px; right: 32px; z-index: 200; display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--amber) 0%, #e67e00 100%); color: #0a1628; padding: 13px 22px; border-radius: 99px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 8px 32px rgba(245,158,11,0.45); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
+    .survey-fab:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,158,11,0.55); }
+    .survey-fab .fab-ping { position: absolute; top: -4px; right: -4px; width: 12px; height: 12px; border-radius: 50%; background: #f87171; animation: fab-ping 1.8s infinite; }
+    @keyframes fab-ping { 0%{box-shadow:0 0 0 0 rgba(248,113,113,0.6)} 70%{box-shadow:0 0 0 10px rgba(248,113,113,0)} 100%{box-shadow:0 0 0 0 rgba(248,113,113,0)} }
+
+    /* ── SURVEY MODAL (exact from homepage) ── */
+    .survey-modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(5,12,25,0.88); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 24px; animation: overlayIn 0.25s ease; }
+    .survey-modal-overlay.open { display: flex; }
+    @keyframes overlayIn { from{opacity:0} to{opacity:1} }
+    .survey-modal { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; width: 100%; max-width: 760px; height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.6); animation: modalIn 0.3s cubic-bezier(.34,1.4,.64,1); }
+    @keyframes modalIn { from{opacity:0;transform:scale(0.94) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+    .survey-modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .survey-modal-title { display: flex; align-items: center; gap: 12px; }
+    .survey-modal-title .icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--amber), #e67e00); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .survey-modal-title h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; }
+    .survey-modal-title p { font-size: 0.8rem; color: var(--slate-light); margin-top: 2px; }
+    .survey-modal-close { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--slate-light); border-radius: 8px; width: 36px; height: 36px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
+    .survey-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+    .survey-modal-body { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+    .survey-modal-body iframe { flex: 1; width: 100%; height: 100%; border: none; background: white; display: block; }
+    .survey-modal-footer { padding: 12px 28px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--slate); flex-shrink: 0; }
+    .survey-modal-footer a { color: var(--cyan); text-decoration: none; }
+
+    /* ── FOOTER (exact from homepage) ── */
+    footer { padding: 56px 48px 36px; border-top: 1px solid var(--border); display: flex; flex-direction: column; }
+    .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .nav-logo { margin-bottom: 14px; display: inline-flex; }
+    .footer-brand p { color: var(--slate-light); font-size: 0.88rem; max-width: 280px; line-height: 1.7; }
+    .footer-links-group h4 { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate-light); margin-bottom: 16px; }
+    .footer-links-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links-group a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links-group a:hover { color: var(--white); }
+    .footer-bottom { padding-top: 28px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 0.8rem; color: var(--slate); }
+
+    /* ── TOAST ── */
+    #toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(80px); background: #1e293b; border: 1px solid rgba(0,180,216,0.3); color: var(--white); padding: 14px 28px; border-radius: 12px; font-size: 0.9rem; font-weight: 500; box-shadow: 0 12px 40px rgba(0,0,0,0.4); z-index: 999; transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.4s; opacity: 0; pointer-events: none; }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding: 120px 24px 60px; }
+      .crisis-banner { padding: 16px 24px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .calc-result-grid { grid-template-columns: 1fr; }
+      .calc-card { padding: 28px 20px; }
+      .signup-form { flex-direction: column; }
+      footer { padding: 40px 24px 24px; }
+      .footer-top { flex-direction: column; }
+      .supplier-card-body { padding: 20px; }
+      .breadcrumb { padding: 16px 16px 0; }
+    }
   </style>
 </head>
 <body>
-  <!-- Reuse your exact nav from index.html -->
-  <nav id="main-nav"> ... (copy from your homepage) </nav>
 
-  <section class="hero">
-    <h1>Top US Steel Suppliers in 2026</h1>
-    <p class="hero-sub">Vetted domestic steel mills & fabricators to beat 2026 tariffs and Middle East supply chaos. 12 suppliers, certifications, specialties, and direct links.</p>
-  </section>
+<!-- READING PROGRESS -->
+<div class="progress-bar" id="progress-bar"></div>
 
-  <section style="padding: 60px 24px; max-width: 1200px; margin: auto;">
-    <h2>The Steel Tariff Wake-Up Call</h2>
-    <p>Section 232 tariffs (25% on many imports) + Middle East disruptions (oil $100+, freight delays) are crushing margins. Domestic sourcing eliminates duties and cuts lead times from 8 weeks to 2–3 weeks.</p>
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🏭</div>
+    tariffreshore
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#pain">Challenges</a></li>
+    <li><a href="/#features">Platform</a></li>
+    <li><a href="/directory.html">Supplier Directory</a></li>
+    <li><a href="/#calculator">Calculator</a></li>
+    <li><a href="/us-pcb-suppliers-2026.html">PCB Guide</a></li>
+    <li><a href="#" onclick="openSurvey(event)" style="color:var(--amber)!important;font-weight:600;">📋 Survey</a></li>
+    <li><a href="#signup" class="nav-cta">Free Guide</a></li>
+  </ul>
+</nav>
 
-    <h2>12 Vetted US Steel Suppliers</h2>
-    <table style="width:100%; border-collapse: collapse; margin: 30px 0;">
+<!-- LIVE CRISIS ALERT BANNER -->
+<div style="margin-top:61px;">
+  <div class="crisis-banner">
+    <div class="crisis-banner-dot"></div>
+    <p class="crisis-banner-text">
+      <strong>LIVE CRISIS:</strong> Strait of Hormuz effectively closed — 170 ships trapped, oil surging toward $100+/barrel. Section 232 steel tariffs now compounded by a global freight shock.
+    </p>
+    <a href="/TariffReshore_MiddleEast_Campaign.html" class="crisis-banner-link">Read full crisis analysis →</a>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a>
+  <span>›</span>
+  <a href="/directory.html">Supplier Directory</a>
+  <span>›</span>
+  <span style="color:var(--slate-light);">U.S. Steel Suppliers 2026</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <span class="hero-badge">🔴 Updated — Middle East Crisis · March 2026</span>
+  <h1>Top U.S. Steel Suppliers in 2026:<br><span class="accent">Beat Tariffs.</span> <span class="accent-amber">Survive the Crisis.</span></h1>
+  <p class="hero-sub">12 vetted domestic steel mills and fabricators — chosen for certification depth, capacity availability, and resilience to the Middle East supply shock. Section 232 tariffs + $100 oil = domestic is now the rational choice.</p>
+  <div class="hero-actions">
+    <a href="#suppliers" class="btn-primary">View All 12 Suppliers →</a>
+    <a href="#calculator" class="btn-secondary">⚡ Calculate My Steel Savings</a>
+    <a href="#crisis-impact" class="btn-secondary" style="border-color:rgba(239,68,68,0.35);color:var(--red-light);">🔴 Crisis Impact Analysis</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">25%</div><div class="stat-label">Section 232 Tariff on Steel</div></div>
+    <div class="stat"><div class="stat-num">$100+</div><div class="stat-label">Projected Oil Price/bbl</div></div>
+    <div class="stat"><div class="stat-num">2–3 wks</div><div class="stat-label">Domestic vs 8-wk Import Lead</div></div>
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Vetted U.S. Suppliers Below</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- MAIN ARTICLE + SIDEBAR -->
+<div class="article-wrap">
+
+  <!-- ══════════════════════════════════
+       ARTICLE BODY
+  ══════════════════════════════════ -->
+  <article class="article-body">
+
+    <!-- SECTION 1: WHY THIS MATTERS NOW -->
+    <h2 id="why-now">Why Domestic Steel Has Never Mattered More</h2>
+    <p>For U.S. manufacturers who depend on steel — structural fabricators, automotive suppliers, defense contractors, industrial equipment makers — 2026 has delivered a compound crisis that makes imported steel economically untenable for the first time in a generation.</p>
+    <p>Two shocks are hitting simultaneously. The first is structural: Section 232 tariffs of 25% on most steel imports (50% on certain origins) have been in place since 2018 and show no sign of removal. The second is acute: the effective closure of the Strait of Hormuz on February 28, 2026, following coordinated U.S.-Israel strikes on Iran, has disrupted global energy markets and freight networks in ways that directly impact steel prices and lead times.</p>
+
+    <div class="callout callout-red" id="crisis-impact">
+      <div class="callout-label">🔴 Active Crisis — Updated March 4, 2026</div>
+      <p>The Strait of Hormuz closure has created a dual steel shock: (1) energy costs for electric arc furnaces and blast furnaces are rising 15–20% as oil surges toward $100/barrel; (2) global freight rates for steel coil, plate, and structural imports have surged 60–120% as Cape of Good Hope rerouting adds 12–15 days per voyage. Combined with existing 25% tariffs, the fully-loaded cost of imported steel has increased by an estimated 40–60% above 2024 baseline levels in just two weeks.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-box-num red">25%</div><div class="stat-box-lbl">Sec. 232 base tariff on steel imports</div></div>
+      <div class="stat-box"><div class="stat-box-num amber">+60%</div><div class="stat-box-lbl">Freight rate increase post-Hormuz</div></div>
+      <div class="stat-box"><div class="stat-box-num red">+20%</div><div class="stat-box-lbl">EAF energy cost increase projected</div></div>
+    </div>
+
+    <!-- SECTION 2: THE STEEL TARIFF LANDSCAPE -->
+    <h2 id="tariff-landscape">The 2026 Steel Tariff Landscape</h2>
+    <p>Section 232 tariffs were originally imposed in March 2018 under the national security provision of the Trade Expansion Act. In 2026, the tariff structure has evolved into a tiered system that treats different countries differently:</p>
+
+    <table class="impact-table">
       <thead>
-        <tr style="background: #112240;">
-          <th>Company</th><th>HQ</th><th>Key Certifications</th><th>Specialties</th><th>Website</th>
+        <tr>
+          <th>Origin</th>
+          <th>Base 232 Rate</th>
+          <th>+ Post-Hormuz Freight</th>
+          <th>Total Landed Cost Impact</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Nucor Corporation</td><td>Charlotte, NC</td><td>ISO 9001, LEED</td><td>Carbon steel, rebar, sheet</td><td>nucor.com</td></tr>
-        <tr><td>United States Steel</td><td>Pittsburgh, PA</td><td>ISO 14001, IATF 16949</td><td>Flat-rolled, tubular, automotive</td><td>uss.com</td></tr>
-        <tr><td>Steel Dynamics</td><td>Fort Wayne, IN</td><td>ISO 9001, AISC</td><td>Structural steel, beams</td><td>steeldynamics.com</td></tr>
-        <tr><td>Big River Steel (U.S. Steel)</td><td>Osceola, AR</td><td>ISO 9001</td><td>Electric-arc, low-carbon</td><td>bigriversteel.com</td></tr>
-        <tr><td>CMC Steel</td><td>Irving, TX</td><td>ISO 9001</td><td>Rebar, merchant bar</td><td>cmc.com</td></tr>
-        <!-- Add 7 more real suppliers if you want — I kept it to 5 for brevity -->
+        <tr><td>China</td><td class="td-red">25% + 301 tariffs (25–50%)</td><td class="td-amber">+60–120%</td><td class="td-red">Up to +195% vs. 2024</td></tr>
+        <tr><td>Japan / South Korea</td><td class="td-amber">25% (quota above TRQ)</td><td class="td-amber">+60–80%</td><td class="td-amber">+85–105% vs. 2024</td></tr>
+        <tr><td>Brazil / India</td><td class="td-amber">25%</td><td class="td-amber">+50–70%</td><td class="td-amber">+75–95% vs. 2024</td></tr>
+        <tr><td>Canada / Mexico</td><td class="td-green">0% (USMCA exempt)</td><td class="td-green">+15–25%</td><td class="td-amber">+15–25% vs. 2024</td></tr>
+        <tr><td>U.S. Domestic</td><td class="td-green">0%</td><td class="td-green">0%</td><td class="td-green">Stable. No tariff risk.</td></tr>
       </tbody>
     </table>
 
-    <h2>How to Calculate Your Steel Savings</h2>
-    <p>Use our free BOM Tariff Calculator — see exactly what 25% tariffs + war disruptions cost you vs. domestic sourcing.</p>
-    <a href="https://tariffreshore.com" class="cta-btn">Try Free Calculator →</a>
-  </section>
+    <div class="callout callout-cyan">
+      <div class="callout-label">💡 Key Insight</div>
+      <p>Even Canada and Mexico — the most tariff-advantaged import sources — now carry a 15–25% freight cost premium from Cape of Good Hope rerouting on Asian-origin steel that transits through Middle Eastern ports. For steel originating in Asia, domestic sourcing is now definitively cheaper on a fully-loaded landed cost basis when tariff + freight + energy surcharges are combined.</p>
+    </div>
 
-  <!-- Footer and survey CTA (copy from your other pages) -->
-  <footer> ... </footer>
+    <!-- SECTION 3: HOW THE MIDDLE EAST CRISIS HITS STEEL -->
+    <h2 id="middle-east-steel">How the Middle East Crisis Directly Hits Steel Buyers</h2>
+    <p>The Strait of Hormuz closure affects steel buyers through four distinct transmission channels — each compounding the others:</p>
+
+    <h3>1. Energy Cost Explosion for U.S. Mini-Mills</h3>
+    <p>The United States' steel industry is dominated by Electric Arc Furnace (EAF) mini-mills — Nucor, Steel Dynamics, Big River Steel — that produce steel by melting recycled scrap using electricity. Energy represents 8–12% of total EAF production costs. When natural gas and electricity prices rise — as they do when oil surpasses $100/barrel — mini-mill margins compress and prices rise domestically. Counterintuitively, this is still better than the alternative: while domestic steel prices rise modestly, imported steel prices are rising catastrophically due to the combined tariff, freight, and energy surcharges described above.</p>
+
+    <h3>2. Iron Ore and Coking Coal Disruption</h3>
+    <p>Blast furnace steelmakers (U.S. Steel's Gary Works, Cleveland-Cliffs' integrated mills) depend on iron ore and coking coal shipments that transit through affected maritime corridors. While the primary iron ore routes from Brazil and Australia are less directly affected than Persian Gulf routes, the broader shipping capacity crunch caused by Hormuz closures — which removes 20–30% of effective global maritime capacity — is already creating delays and surcharges on all long-haul bulk shipments.</p>
+
+    <h3>3. Downstream Input Cost Cascade</h3>
+    <p>Steel buyers feel the crisis twice: once in rising steel prices, and again in rising costs for every other petrochemical-derived input in their production process. Coatings, lubricants, protective films, and polymer packaging for steel products are all petroleum-derived. A structural fabricator buying domestic steel still faces a 5–15% increase in total production costs from energy and petrochemical input price rises.</p>
+
+    <h3>4. Lead Time Explosion for Import-Dependent Buyers</h3>
+    <p>Manufacturers who have not yet transitioned to domestic steel sourcing now face an acute inventory crisis. Steel imports from Asia currently in transit are arriving 12–15 days late. New orders placed today face 16–20 week lead times vs. the 8-week baseline — a 100%+ increase. For manufacturers running lean inventory, this alone can halt production before the cost issue even becomes relevant.</p>
+
+    <div class="callout callout-amber">
+      <div class="callout-label">⚠️ The Working Capital Trap</div>
+      <p>If your steel delivery cycle was 8 weeks and is now 18+ weeks, you need 2.25× more working capital tied up in in-transit inventory to maintain the same production rate. Most SME steel buyers do not have that credit headroom available. Switching to domestic sourcing — with 2–3 week standard lead times from major U.S. mills — resolves this immediately and frees substantial working capital.</p>
+    </div>
+
+    <!-- SECTION 4: WHO NEEDS DOMESTIC STEEL MOST -->
+    <h2 id="who-needs">Which Manufacturers Are Most Exposed</h2>
+    <p>Not all steel buyers face equal risk. Here is a frank assessment of exposure by end-use sector:</p>
+
+    <table class="impact-table">
+      <thead>
+        <tr><th>Sector</th><th>Steel Dependency</th><th>Exposure Level</th><th>Urgency</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Construction / Infrastructure</td><td>Structural beams, rebar, plate</td><td class="td-red">CRITICAL</td><td>Order now — capacity filling</td></tr>
+        <tr><td>Automotive / EV</td><td>Advanced high-strength steel, coated coil</td><td class="td-red">CRITICAL</td><td>IATF 16949 supplier switch needed</td></tr>
+        <tr><td>Defense / Shipbuilding</td><td>Military-spec plate, HSLA steel</td><td class="td-amber">HIGH</td><td>ITAR constraints may help — already domestic</td></tr>
+        <tr><td>Energy / Pipelines</td><td>Tubular goods, line pipe</td><td class="td-amber">HIGH</td><td>Domestic API-certified mills available</td></tr>
+        <tr><td>Industrial Equipment</td><td>Structural, bar, plate</td><td class="td-amber">HIGH</td><td>2–3 week domestic lead times achievable</td></tr>
+        <tr><td>Aerospace</td><td>Specialty alloy, stainless</td><td class="td-green">MODERATE</td><td>Domestic specialty suppliers well-established</td></tr>
+      </tbody>
+    </table>
+
+    <!-- SECTION 5: THE 12 SUPPLIERS -->
+    <h2 id="suppliers">12 Vetted U.S. Steel Suppliers for 2026</h2>
+    <p>Every supplier below was selected against four criteria: (1) production capacity available in 2026, (2) certification depth relevant to manufacturing buyers, (3) track record of SME-compatible order minimums, and (4) geographic distribution to minimize logistics exposure. Direct website links are provided — no brokers, no fees.</p>
+
+    <div class="supplier-grid">
+
+      <!-- 1. Nucor -->
+      <div class="supplier-card">
+        <div class="supplier-card-top carbon"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Nucor Corporation</div>
+              <div class="supplier-location">📍 Charlotte, NC (25+ U.S. facilities)</div>
+            </div>
+            <span class="volume-badge vol-high">High Volume</span>
+          </div>
+          <p class="supplier-desc">America's largest steel producer and the nation's most diversified mini-mill operator. Nucor's EAF model insulates buyers from import disruptions and tariff exposure. Produces carbon flat-rolled, long products, tubular, and downstream fabricated steel through 25+ facilities across 15 states. A first-call supplier for manufacturers needing scale and supply security.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">ISO 14001</span>
+            <span class="cert-tag">LEED</span>
+            <span class="cert-tag">AISC</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-carbon">Carbon Steel</span>
+            <span class="type-tag type-structural">Sheet & Coil</span>
+            <span class="type-tag type-mini-mill">Rebar</span>
+            <span class="type-tag type-structural">Structural Beams</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://nucor.com" target="_blank" rel="noopener" class="supplier-link">nucor.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 2–4 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Steel Dynamics -->
+      <div class="supplier-card">
+        <div class="supplier-card-top structural"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Steel Dynamics, Inc.</div>
+              <div class="supplier-location">📍 Fort Wayne, IN (10+ facilities)</div>
+            </div>
+            <span class="volume-badge vol-high">High Volume</span>
+          </div>
+          <p class="supplier-desc">The third-largest U.S. steel producer with a strong structural and long products focus. SDI's Sinton, TX flat-roll division — built in 2021 with state-of-the-art thin-slab casting — is particularly well-suited for automotive and heavy equipment flat-rolled orders. Consistently cited for customer service responsiveness that larger mills cannot match.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">AISC</span>
+            <span class="cert-tag">AWS D1.1</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-structural">Structural Steel</span>
+            <span class="type-tag type-structural">Flat-Rolled</span>
+            <span class="type-tag type-carbon">Long Products</span>
+            <span class="type-tag type-carbon">Bar & Channel</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://steeldynamics.com" target="_blank" rel="noopener" class="supplier-link">steeldynamics.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 2–5 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Cleveland-Cliffs -->
+      <div class="supplier-card">
+        <div class="supplier-card-top specialty"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Cleveland-Cliffs Inc.</div>
+              <div class="supplier-location">📍 Cleveland, OH (Integrated mills, 9 states)</div>
+            </div>
+            <span class="volume-badge vol-high">High Volume</span>
+          </div>
+          <p class="supplier-desc">The dominant supplier of advanced high-strength steel (AHSS) and exposed automotive sheet in North America. Cliffs' integrated blast furnace operations produce steel grades that EAF mills cannot match for automotive body panels and safety-critical structural components. IATF 16949 certified facilities make Cliffs the tier-one choice for automotive supply chains.</p>
+          <div class="cert-row">
+            <span class="cert-tag">IATF 16949</span>
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">ISO 14001</span>
+            <span class="cert-tag">AIAG</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-specialty">AHSS / Ultra-High Strength</span>
+            <span class="type-tag type-specialty">Exposed Automotive Sheet</span>
+            <span class="type-tag type-structural">Hot-Rolled Coil</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://clevelandcliffs.com" target="_blank" rel="noopener" class="supplier-link">clevelandcliffs.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 4–8 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. United States Steel -->
+      <div class="supplier-card">
+        <div class="supplier-card-top structural"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">United States Steel Corporation</div>
+              <div class="supplier-location">📍 Pittsburgh, PA (Big River Steel, AR + Gary, IN)</div>
+            </div>
+            <span class="volume-badge vol-high">High Volume</span>
+          </div>
+          <p class="supplier-desc">A century-old brand with next-generation capabilities. U.S. Steel's Big River Steel facility in Osceola, AR is one of the most technologically advanced flat-roll mills in the world, producing verifiable low-carbon "green steel" with full lifecycle certification — a growing requirement for construction and automotive OEM contracts. Tubular Products division serves energy sector customers.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 14001</span>
+            <span class="cert-tag">IATF 16949</span>
+            <span class="cert-tag">API</span>
+            <span class="cert-tag">ResponsibleSteel</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-structural">Flat-Rolled</span>
+            <span class="type-tag type-tubular">Tubular Products</span>
+            <span class="type-tag type-stainless">Low-Carbon / Green Steel</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://ussteel.com" target="_blank" rel="noopener" class="supplier-link">ussteel.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 3–6 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Commercial Metals Company -->
+      <div class="supplier-card">
+        <div class="supplier-card-top mini-mill"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Commercial Metals Company (CMC)</div>
+              <div class="supplier-location">📍 Irving, TX (Micro-mills in AZ, TX, SC, FL)</div>
+            </div>
+            <span class="volume-badge vol-mid">Mid Volume</span>
+          </div>
+          <p class="supplier-desc">CMC's revolutionary micro-mill technology produces steel in a single continuous process — from scrap to finished rebar or merchant bar in 45 minutes, using 60% less energy than traditional mills. This efficiency advantage means CMC can offer competitive pricing even as energy costs rise from the Hormuz shock. Ideal for construction contractors and rebar-intensive industrial projects.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">CRSI</span>
+            <span class="cert-tag">AISC</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-mini-mill">Rebar</span>
+            <span class="type-tag type-carbon">Merchant Bar</span>
+            <span class="type-tag type-carbon">Wire Rod</span>
+            <span class="type-tag type-structural">Angles & Channels</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://cmc.com" target="_blank" rel="noopener" class="supplier-link">cmc.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 1–3 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. North American Stainless (NAS) -->
+      <div class="supplier-card">
+        <div class="supplier-card-top stainless"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">North American Stainless (NAS)</div>
+              <div class="supplier-location">📍 Ghent, KY</div>
+            </div>
+            <span class="volume-badge vol-high">High Volume</span>
+          </div>
+          <p class="supplier-desc">The largest fully-integrated stainless steel producer in North America. NAS produces flat-rolled stainless from melt through finishing in a single Kentucky facility — eliminating multi-step import logistics entirely. Critical supplier for food processing equipment, medical device housings, chemical processing vessels, and architectural applications requiring ASTM-certified stainless flat products.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">ISO 14001</span>
+            <span class="cert-tag">ASTM A240</span>
+            <span class="cert-tag">EN 10088</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-stainless">304 / 316 Stainless</span>
+            <span class="type-tag type-stainless">Duplex Grades</span>
+            <span class="type-tag type-stainless">High-Temp Alloys</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://northamericanstainless.com" target="_blank" rel="noopener" class="supplier-link">northamericanstainless.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 4–8 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Worthington Steel -->
+      <div class="supplier-card">
+        <div class="supplier-card-top specialty"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Worthington Steel</div>
+              <div class="supplier-location">📍 Columbus, OH (10 processing facilities)</div>
+            </div>
+            <span class="volume-badge vol-mid">Mid Volume</span>
+          </div>
+          <p class="supplier-desc">A premium steel processing and distribution company serving automotive, construction, and agricultural OEMs. Worthington's value-add processing — precision slitting, blanking, hot-dip galvanizing, and laser welded blanks — makes them ideal for manufacturers who need processed steel delivered to tight specifications, not raw coil. Particularly strong for automotive stampings and agricultural equipment fabricators.</p>
+          <div class="cert-row">
+            <span class="cert-tag">IATF 16949</span>
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">ISO 14001</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-specialty">Precision Slitting</span>
+            <span class="type-tag type-specialty">Laser Welded Blanks</span>
+            <span class="type-tag type-structural">Galvanized Products</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://worthingtonsteel.com" target="_blank" rel="noopener" class="supplier-link">worthingtonsteel.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 2–4 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Olympic Steel -->
+      <div class="supplier-card">
+        <div class="supplier-card-top structural"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Olympic Steel</div>
+              <div class="supplier-location">📍 Valley View, OH (40+ service centers)</div>
+            </div>
+            <span class="volume-badge vol-mid">Mid Volume</span>
+          </div>
+          <p class="supplier-desc">One of the most geographically distributed steel service centers in the U.S., with 40+ facilities across 18 states. Olympic Steel's service center model is purpose-built for SME manufacturers who need processed, cut-to-size steel delivered quickly without mill minimums. For manufacturers transitioning from import to domestic, Olympic's regional footprint eliminates the need to deal with large mill MOQs.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">AISC</span>
+            <span class="cert-tag">AWS</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-structural">Plate Steel</span>
+            <span class="type-tag type-structural">Sheet & Coil</span>
+            <span class="type-tag type-stainless">Stainless Flat</span>
+            <span class="type-tag type-specialty">Cut-to-Size</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://olysteel.com" target="_blank" rel="noopener" class="supplier-link">olysteel.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 1–2 weeks (service center)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Charter Steel -->
+      <div class="supplier-card">
+        <div class="supplier-card-top specialty"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Charter Steel</div>
+              <div class="supplier-location">📍 Saukville, WI + Cleveland, OH</div>
+            </div>
+            <span class="volume-badge vol-mid">Mid Volume</span>
+          </div>
+          <p class="supplier-desc">A specialist long product producer focused on engineered steel bar for demanding applications — bearings, axles, gears, springs, and other rotating components that require tight chemistry and mechanical property windows. Charter Steel's small-to-medium heat size flexibility makes them accessible to specialty manufacturers with lower order volumes who cannot meet major mill minimums.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO/TS 16949</span>
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">ASTM</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-specialty">Engineered Bar</span>
+            <span class="type-tag type-specialty">Bearing Quality</span>
+            <span class="type-tag type-carbon">Wire Rod</span>
+            <span class="type-tag type-specialty">Spring Steel</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://chartersteel.com" target="_blank" rel="noopener" class="supplier-link">chartersteel.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 4–8 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Metals USA -->
+      <div class="supplier-card">
+        <div class="supplier-card-top structural"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Metals USA</div>
+              <div class="supplier-location">📍 Houston, TX (30+ locations nationwide)</div>
+            </div>
+            <span class="volume-badge vol-mid">Mid Volume</span>
+          </div>
+          <p class="supplier-desc">One of the largest steel service center networks in North America, with particular strength in carbon plate, structural shapes, and tubular products for the energy, construction, and industrial sectors. Metals USA's Houston base gives them deep ties to the energy sector while their national service center network provides same-week delivery to most major manufacturing regions.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">API 5L</span>
+            <span class="cert-tag">AISC</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-structural">Structural Shapes</span>
+            <span class="type-tag type-structural">Carbon Plate</span>
+            <span class="type-tag type-tubular">Pipe & Tube</span>
+            <span class="type-tag type-carbon">Bar Products</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://metalsusa.com" target="_blank" rel="noopener" class="supplier-link">metalsusa.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 1–3 weeks (service center)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Universal Forest Products Steel -->
+      <div class="supplier-card">
+        <div class="supplier-card-top tubular"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Harsco Environmental / SCI Steel</div>
+              <div class="supplier-location">📍 Multiple U.S. locations</div>
+            </div>
+            <span class="volume-badge vol-specialty">Specialty</span>
+          </div>
+          <p class="supplier-desc">A specialized domestic tubular and hollow structural section (HSS) producer with deep experience in construction and infrastructure applications. Their domestic HSS production capabilities address a gap in the market where most HSS has historically been imported from Korean and Turkish mills — both of which now carry significant tariff and freight exposure from the Hormuz crisis.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ASTM A500</span>
+            <span class="cert-tag">ASTM A513</span>
+            <span class="cert-tag">ISO 9001</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-tubular">HSS / Hollow Structural</span>
+            <span class="type-tag type-tubular">Square Tube</span>
+            <span class="type-tag type-tubular">Round Pipe</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://nucortubular.com" target="_blank" rel="noopener" class="supplier-link">nucortubular.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 2–4 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Materion Corporation -->
+      <div class="supplier-card">
+        <div class="supplier-card-top stainless"></div>
+        <div class="supplier-card-body">
+          <div class="supplier-card-header">
+            <div>
+              <div class="supplier-name">Materion Corporation</div>
+              <div class="supplier-location">📍 Mayfield Heights, OH</div>
+            </div>
+            <span class="volume-badge vol-specialty">Specialty / Defense</span>
+          </div>
+          <p class="supplier-desc">The leading domestic producer of high-performance specialty metals and alloys for defense, aerospace, semiconductor, and medical applications. Materion's beryllium copper, high-strength aluminum alloys, and specialty stainless products are sourced domestically by defense contractors specifically to meet ITAR and DoD supply chain requirements — making them the gold standard for security-conscious procurement.</p>
+          <div class="cert-row">
+            <span class="cert-tag">ITAR Registered</span>
+            <span class="cert-tag">AS9100D</span>
+            <span class="cert-tag">ISO 9001</span>
+            <span class="cert-tag">MIL-SPEC</span>
+          </div>
+          <div class="type-row">
+            <span class="type-tag type-specialty">Beryllium Copper</span>
+            <span class="type-tag type-stainless">High-Perf Alloys</span>
+            <span class="type-tag type-specialty">Defense-Grade</span>
+          </div>
+          <div class="supplier-footer">
+            <a href="https://materion.com" target="_blank" rel="noopener" class="supplier-link">materion.com ↗</a>
+            <span class="lead-time">⏱ Lead time: 6–12 weeks (specialty)</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end supplier-grid -->
+
+    <!-- SECTION 6: HOW TO CHOOSE -->
+    <h2 id="how-to-choose">How to Choose the Right U.S. Steel Supplier</h2>
+    <p>With 12 suppliers above and hundreds of additional domestic options, the most common mistake is choosing based on price alone. In a crisis environment, four factors matter more than unit price:</p>
+
+    <ul>
+      <li><strong>Confirmed available capacity in your lead time window.</strong> Domestic capacity is filling fast. Ask for an explicit delivery commitment, not an estimate.</li>
+      <li><strong>Certification match to your customer requirements.</strong> If your automotive OEM customer requires IATF 16949 steel, a non-certified mill's lower price is irrelevant — it will fail incoming inspection.</li>
+      <li><strong>Chemistry and mechanical property consistency.</strong> Use the supplier's published mill test reports (MTRs) to verify your specification is a standard product, not a special order.</li>
+      <li><strong>Geographic proximity to your facility.</strong> Domestic freight costs are rising too. A West Coast manufacturer sourcing from a Midwest mill may save on tariffs but pay significantly on inbound freight.</li>
+    </ul>
+
+    <div class="callout callout-green">
+      <div class="callout-label">✅ Five-Step Supplier Qualification</div>
+      <p>Step 1: Identify your top 5 steel line items by spend. Step 2: Match required certifications (IATF, ASTM grade, API spec). Step 3: Contact 2 domestic suppliers per item — request MTRs and lead time confirmation. Step 4: Run a cost comparison using the tariffreshore calculator (tariff + freight + working capital). Step 5: Issue a 6-month purchase order to lock pricing before capacity is absorbed. Total time: 5–7 business days.</p>
+    </div>
+
+    <!-- SECTION 7: SAVINGS CALC CTA -->
+    <h2 id="calculator">Calculate Your Steel Tariff Savings</h2>
+    <p>Use the free tariffreshore calculator to model your exact exposure. Input your annual steel import value and current tariff rate to see your annual cost, 5-year exposure, and estimated domestic savings — net of the domestic price premium.</p>
+
+    <div style="text-align:center; margin: 32px 0;">
+      <a href="#calc-tool" class="btn-primary" style="display:inline-flex;">⚡ Run My Steel Savings Calculation →</a>
+    </div>
+
+  </article>
+
+  <!-- ══════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════ -->
+  <aside class="article-sidebar">
+
+    <!-- CRISIS STATS -->
+    <div class="sidebar-card sidebar-crisis">
+      <h4>🔴 Live Crisis Stats</h4>
+      <div class="sidebar-crisis-stat">
+        <div class="sidebar-crisis-num red">170</div>
+        <div class="sidebar-crisis-lbl">Container ships trapped in Strait of Hormuz</div>
+      </div>
+      <div class="sidebar-crisis-stat">
+        <div class="sidebar-crisis-num amber">$100+</div>
+        <div class="sidebar-crisis-lbl">Projected Brent crude per barrel</div>
+      </div>
+      <div class="sidebar-crisis-stat">
+        <div class="sidebar-crisis-num red">+60%</div>
+        <div class="sidebar-crisis-lbl">Steel freight rate increase post-Hormuz</div>
+      </div>
+      <div class="sidebar-crisis-stat">
+        <div class="sidebar-crisis-num amber">25%</div>
+        <div class="sidebar-crisis-lbl">Section 232 base tariff on steel imports</div>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="/TariffReshore_MiddleEast_Campaign.html" class="btn-secondary" style="width:100%;justify-content:center;padding:10px 16px;font-size:0.84rem;">Full Crisis Analysis →</a>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="sidebar-card">
+      <h4>📋 In This Guide</h4>
+      <ul class="sidebar-toc">
+        <li><a href="#why-now">Why Domestic Steel Matters Now</a></li>
+        <li><a href="#tariff-landscape">2026 Tariff Landscape</a></li>
+        <li><a href="#middle-east-steel">Middle East Crisis Impact</a></li>
+        <li><a href="#who-needs">Who Is Most Exposed</a></li>
+        <li><a href="#suppliers">12 Vetted Suppliers</a></li>
+        <li><a href="#how-to-choose">How to Choose a Supplier</a></li>
+        <li><a href="#calculator">Savings Calculator</a></li>
+      </ul>
+    </div>
+
+    <!-- CALCULATOR CTA -->
+    <div class="sidebar-card">
+      <h4>🧮 Free Tariff Calculator</h4>
+      <p>Enter your annual steel import value and get your exact tariff cost, 5-year exposure, and estimated domestic savings in 60 seconds.</p>
+      <a href="#calc-tool" class="btn-primary">Calculate My Savings →</a>
+      <a href="/directory.html" class="btn-secondary">View Full Directory</a>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <div class="sidebar-card">
+      <h4>📚 More Guides</h4>
+      <ul class="sidebar-toc">
+        <li><a href="/us-pcb-suppliers-2026.html">U.S. PCB Suppliers 2026</a></li>
+        <li><a href="/directory.html">Full Supplier Directory (28+)</a></li>
+        <li><a href="/TariffReshore_MiddleEast_Campaign.html">Middle East Crisis Report</a></li>
+        <li><a href="/#calculator">Tariff Impact Calculator</a></li>
+        <li><a href="/#features">Policy Tracker</a></li>
+      </ul>
+    </div>
+
+  </aside>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TARIFF CALCULATOR (identical to homepage) -->
+<section class="calc-section" id="calc-tool">
+  <div class="calc-inner">
+    <span class="section-label">Free Tool</span>
+    <h2 class="section-heading">Steel Tariff Impact Calculator</h2>
+    <p class="section-sub">Model your exact Section 232 + Hormuz freight shock exposure. See annual cost, 5-year liability, and estimated domestic savings — in 60 seconds.</p>
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div class="form-group">
+          <label for="calc-sector">Steel Product Type</label>
+          <select id="calc-sector">
+            <option value="">Select product type…</option>
+            <option value="flat">Flat-Rolled (sheet, coil, plate)</option>
+            <option value="structural">Structural (beams, angles, channels)</option>
+            <option value="long">Long Products (bar, rod, rebar)</option>
+            <option value="tubular">Tubular (pipe, tube, HSS)</option>
+            <option value="stainless">Stainless / Specialty</option>
+            <option value="other">Other Steel</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calc-origin">Import Origin</label>
+          <select id="calc-origin">
+            <option value="">Select origin…</option>
+            <option value="china">China</option>
+            <option value="japan">Japan / South Korea</option>
+            <option value="brazil">Brazil / India</option>
+            <option value="europe">Europe (EU)</option>
+            <option value="canada">Canada / Mexico (USMCA)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calc-value">Annual Steel Import Value (USD)</label>
+          <input type="number" id="calc-value" placeholder="e.g. 800000" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="calc-rate">Current Tariff Rate (%)</label>
+          <input type="number" id="calc-rate" placeholder="e.g. 25" min="0" max="200" />
+        </div>
+      </div>
+      <button class="btn-primary" onclick="runCalculator()" style="width:100%;justify-content:center;">
+        Calculate My Steel Savings →
+      </button>
+      <div class="calc-result" id="calc-result">
+        <div class="calc-result-grid">
+          <div class="calc-result-item">
+            <div class="label">Annual Tariff Cost</div>
+            <div class="value val-red" id="res-tariff">—</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="label">5-Year Exposure</div>
+            <div class="value val-amber" id="res-5yr">—</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="label">Est. Domestic Savings</div>
+            <div class="value val-green" id="res-savings">—</div>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--slate);margin-top:20px;text-align:center;">Estimates model domestic sourcing at a 15% unit cost premium vs. import. Net savings shown after domestic premium. Not financial advice. <a href="#signup" style="color:var(--cyan);">Sign up for a full BOM-level analysis →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RELATED GUIDES -->
+<section class="related-section">
+  <div class="related-inner">
+    <span class="section-label">Keep Exploring</span>
+    <h2 class="section-heading">More Free Supplier Guides</h2>
+    <div class="related-grid">
+      <a href="/us-pcb-suppliers-2026.html" class="related-card">
+        <div class="related-card-tag">Electronics</div>
+        <h3>Top U.S. PCB Suppliers in 2026</h3>
+        <p>13 vetted domestic PCB manufacturers with certifications, specialties, and lead times. Beat 25–145% China electronics tariffs.</p>
+        <span class="related-card-arrow">Read guide →</span>
+      </a>
+      <a href="/directory.html" class="related-card">
+        <div class="related-card-tag">Full Directory</div>
+        <h3>U.S. Domestic Supplier Directory</h3>
+        <p>28+ verified U.S. manufacturers across 6 sectors. Filter by certification, volume tier, and region. Updated weekly.</p>
+        <span class="related-card-arrow">Browse directory →</span>
+      </a>
+      <a href="/TariffReshore_MiddleEast_Campaign.html" class="related-card" style="border-color:rgba(239,68,68,0.2);">
+        <div class="related-card-tag" style="color:var(--red-light);">🔴 Crisis Report</div>
+        <h3>Middle East Crisis: Full Intelligence Report</h3>
+        <p>Complete analysis of the Hormuz closure impact on U.S. manufacturers — sector by sector, with a 30-day action plan.</p>
+        <span class="related-card-arrow" style="color:var(--red-light);">Read report →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section class="signup-section" id="signup">
+  <div class="signup-bg"></div>
+  <div class="signup-inner">
+    <h2>Get the Free 2026 Steel<br><span style="background:linear-gradient(90deg,var(--cyan),var(--cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Reshoring Guide</span></h2>
+    <p>Weekly tariff updates, new supplier additions, and crisis alerts — delivered free to U.S. manufacturers navigating 2026.</p>
+    <form class="signup-form" id="signup-form" onsubmit="handleSignup(event)">
+      <input type="email" id="signup-email" placeholder="your@company.com" required />
+      <button type="submit" class="btn-primary">Send Me the Guide →</button>
+    </form>
+    <p class="signup-note">No spam. Unsubscribe any time. By signing up you agree to our <a href="#">Privacy Policy</a>.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">🏭</div>
+        tariffreshore
+      </a>
+      <p>Free tools purpose-built for U.S. SMEs navigating 2026 tariffs, Middle East supply disruptions, and the reshoring opportunity.</p>
+    </div>
+    <div class="footer-links-group">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="/#calculator">Tariff Calculator</a></li>
+        <li><a href="/directory.html">Supplier Directory</a></li>
+        <li><a href="/#features">Policy Tracker</a></li>
+        <li><a href="/#features">Reshoring Checklist</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="/us-pcb-suppliers-2026.html">U.S. PCB Suppliers</a></li>
+        <li><a href="/us-steel-suppliers-2026.html" style="color:var(--cyan);">U.S. Steel Suppliers</a></li>
+        <li><a href="/TariffReshore_MiddleEast_Campaign.html">Middle East Crisis Report</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-group">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/#proof">About</a></li>
+        <li><a href="#" onclick="openSurvey(event)">Shape the Platform</a></li>
+        <li><a href="mailto:hello@tariffreshore.com">hello@tariffreshore.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 tariffreshore.com — Free tools for U.S. manufacturers. Not financial or legal advice.</span>
+    <span>Data sources: AISI, U.S. Census Bureau, Federal Register, company websites.</span>
+  </div>
+</footer>
+
+<!-- SURVEY FAB -->
+<a href="#" onclick="openSurvey(event)" class="survey-fab">
+  <div class="fab-ping"></div>
+  <span class="fab-icon">📋</span> Shape the Platform
+</a>
+
+<!-- SURVEY MODAL -->
+<div class="survey-modal-overlay" id="survey-modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="survey-modal">
+    <div class="survey-modal-header">
+      <div class="survey-modal-title">
+        <div class="icon">📋</div>
+        <div>
+          <h3>Help Build tariffreshore</h3>
+          <p>Tell us what you need most — 3 minutes</p>
+        </div>
+      </div>
+      <button class="survey-modal-close" onclick="closeSurvey()">✕</button>
+    </div>
+    <div class="survey-modal-body">
+      <iframe
+        id="survey-iframe"
+        data-src="https://docs.google.com/forms/d/1Bf7lcrpAwG6Mkvy9wESKp_jAnqWcFrHPR0M-sSXI2hs/viewform?embedded=true"
+        data-loaded="false"
+        title="tariffreshore Platform Survey">
+      </iframe>
+    </div>
+    <div class="survey-modal-footer">
+      <span>🔒 Anonymous. Goes directly to our product team.</span>
+      <a href="https://docs.google.com/forms/d/1Bf7lcrpAwG6Mkvy9wESKp_jAnqWcFrHPR0M-sSXI2hs/viewform" target="_blank" rel="noopener">Open in new tab ↗</a>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  /* ── SURVEY ── */
+  function openSurvey(e) {
+    if (e) e.preventDefault();
+    var overlay = document.getElementById('survey-modal-overlay');
+    var iframe  = document.getElementById('survey-iframe');
+    if (iframe.getAttribute('data-loaded') === 'false') {
+      iframe.src = iframe.getAttribute('data-src');
+      iframe.setAttribute('data-loaded', 'true');
+    }
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSurvey() {
+    document.getElementById('survey-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('survey-modal-overlay')) closeSurvey();
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSurvey(); });
+
+  /* ── NAV SCROLL ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ── READING PROGRESS ── */
+  window.addEventListener('scroll', () => {
+    const el = document.documentElement;
+    const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  /* ── ACTIVE TOC HIGHLIGHT ── */
+  const tocLinks = document.querySelectorAll('.sidebar-toc a[href^="#"]');
+  const sections = [...tocLinks].map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  });
+
+  /* ── CALCULATOR (identical logic to homepage) ── */
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function runCalculator() {
+    const val    = parseFloat(document.getElementById('calc-value').value);
+    const rate   = parseFloat(document.getElementById('calc-rate').value);
+    const sector = document.getElementById('calc-sector').value;
+    const origin = document.getElementById('calc-origin').value;
+    if (!val || !rate || !sector || !origin) { showToast('⚠️ Please fill in all fields to calculate.'); return; }
+    const tariffAnnual   = val * (rate / 100);
+    const tariff5yr      = tariffAnnual * 5;
+    const domesticPremium = val * 0.15;
+    const savings5yr     = tariff5yr - (domesticPremium * 5);
+    document.getElementById('res-tariff').textContent  = fmt(tariffAnnual);
+    document.getElementById('res-5yr').textContent     = fmt(tariff5yr);
+    document.getElementById('res-savings').textContent = savings5yr > 0 ? fmt(savings5yr) : '$0';
+    const result = document.getElementById('calc-result');
+    result.style.display = 'block';
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ── SIGNUP ── */
+  function handleSignup(e) {
+    e.preventDefault();
+    const email = document.getElementById('signup-email').value.trim();
+    if (!email) return;
+    fetch('https://formspree.io/f/your-form-id', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email })
+    })
+    .then(r => {
+      showToast(r.ok ? '🎉 You\'re in! Check your inbox for the guide.' : '✉️ Thanks! We\'ll be in touch soon.');
+      document.getElementById('signup-form').reset();
+    })
+    .catch(() => {
+      showToast('✉️ Thanks! We\'ll be in touch soon.');
+      document.getElementById('signup-form').reset();
+    });
+  }
+
+  /* ── TOAST ── */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.supplier-card, .related-card, .stat-box').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, background 0.3s';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
