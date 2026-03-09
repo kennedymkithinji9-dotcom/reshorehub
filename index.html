@@ -802,7 +802,8 @@
         </div>
         <div class="form-group">
           <label>Current Tariff Rate (%)</label>
-          <input type="number" id="calc-rate" placeholder="e.g. 25" min="0" max="200" />
+          <input type="number" id="calc-rate" placeholder="Select sector &amp; origin to auto-fill" min="0" max="500" />
+          <span id="rate-hint" style="font-size:0.75rem;color:var(--cyan);margin-top:2px;min-height:1em;display:block;"></span>
         </div>
       </div>
       <button class="btn-primary" id="calc-btn" onclick="runCalculator()">Calculate Impact →</button>
@@ -984,23 +985,96 @@
 
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
-  function runCalculator() {
-    const val = parseFloat(document.getElementById('calc-value').value);
-    const rate = parseFloat(document.getElementById('calc-rate').value);
+  // Suggested tariff rates by sector + origin (approximate 2026 rates)
+  const TARIFF_RATES = {
+    electronics: { china: 145, mexico: 25, vietnam: 46, taiwan: 32, india: 26, other: 20 },
+    auto:        { china: 102.5, mexico: 25, vietnam: 46, taiwan: 27.5, india: 27.5, other: 25 },
+    textiles:    { china: 57, mexico: 20, vietnam: 46, taiwan: 12, india: 12, other: 12 },
+    metals:      { china: 50, mexico: 25, vietnam: 46, taiwan: 50, india: 25, other: 25 },
+    pharma:      { china: 20, mexico: 0, vietnam: 10, taiwan: 0, india: 0, other: 5 },
+    other:       { china: 34, mexico: 25, vietnam: 46, taiwan: 32, india: 26, other: 20 }
+  };
+
+  // Domestic cost premium by sector (how much more expensive domestic sourcing typically is vs import price)
+  const DOMESTIC_PREMIUM = {
+    electronics: 0.18,
+    auto:        0.12,
+    textiles:    0.20,
+    metals:      0.10,
+    pharma:      0.15,
+    other:       0.15
+  };
+
+  function updateSuggestedRate() {
     const sector = document.getElementById('calc-sector').value;
     const origin = document.getElementById('calc-origin').value;
-    if (!val || !rate || !sector || !origin) { showToast('⚠️ Please fill in all fields to calculate.'); return; }
-    const tariffAnnual = val * (rate / 100);
-    const tariff5yr = tariffAnnual * 5;
-    const domesticPremium = val * 0.15;
-    const savings5yr = tariff5yr - (domesticPremium * 5);
-    document.getElementById('res-tariff').textContent = fmt(tariffAnnual);
-    document.getElementById('res-5yr').textContent = fmt(tariff5yr);
-    document.getElementById('res-savings').textContent = savings5yr > 0 ? fmt(savings5yr) : '$0';
+    const rateInput = document.getElementById('calc-rate');
+    const hint = document.getElementById('rate-hint');
+    if (sector && origin && TARIFF_RATES[sector] && TARIFF_RATES[sector][origin] !== undefined) {
+      const suggested = TARIFF_RATES[sector][origin];
+      if (hint) hint.textContent = '2026 estimated rate: ' + suggested + '% — edit if you have a specific rate';
+      // Only auto-fill if the field is empty or was previously auto-filled
+      if (!rateInput.dataset.userEdited) {
+        rateInput.value = suggested;
+      }
+    } else {
+      if (hint) hint.textContent = '';
+    }
+  }
+
+  function runCalculator() {
+    const val   = parseFloat(document.getElementById('calc-value').value);
+    const rate  = parseFloat(document.getElementById('calc-rate').value);
+    const sector = document.getElementById('calc-sector').value;
+    const origin = document.getElementById('calc-origin').value;
+
+    if (!sector || !origin) { showToast('⚠️ Please select a sector and origin country.'); return; }
+    if (isNaN(val) || val <= 0) { showToast('⚠️ Please enter a valid annual import value.'); return; }
+    if (isNaN(rate) || rate < 0 || rate > 500) { showToast('⚠️ Please enter a valid tariff rate (0–500%).'); return; }
+
+    const tariffAnnual  = val * (rate / 100);
+    const tariff5yr     = tariffAnnual * 5;
+    // Domestic premium: domestic sourcing costs this much MORE than the import price (labour, capex, etc.)
+    const premiumRate   = DOMESTIC_PREMIUM[sector] || 0.15;
+    const domesticExtraCostAnnual = val * premiumRate;
+    // Net annual savings = tariff avoided minus the extra cost of going domestic
+    const netSavingsAnnual = tariffAnnual - domesticExtraCostAnnual;
+    const netSavings5yr    = netSavingsAnnual * 5;
+
+    document.getElementById('res-tariff').textContent   = fmt(tariffAnnual);
+    document.getElementById('res-5yr').textContent      = fmt(tariff5yr);
+
+    const savingsEl = document.getElementById('res-savings');
+    if (netSavings5yr > 0) {
+      savingsEl.textContent = fmt(netSavings5yr);
+      savingsEl.className = 'value val-green';
+    } else {
+      savingsEl.textContent = 'Low at ' + rate + '%';
+      savingsEl.className = 'value val-amber';
+    }
+
+    // Update savings label to clarify it's 5-year net
+    const savingsLabel = document.querySelector('#calc-result .calc-result-item:last-child .label');
+    if (savingsLabel) savingsLabel.textContent = netSavings5yr > 0 ? '5-Yr Net Domestic Savings' : 'Est. Savings (5-Yr Net)';
+
     const result = document.getElementById('calc-result');
     result.style.display = 'block';
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+
+  // Wire up auto-suggest and user-edit tracking after DOM loads
+  document.addEventListener('DOMContentLoaded', function() {
+    ['calc-sector', 'calc-origin'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('change', updateSuggestedRate);
+    });
+    const rateInput = document.getElementById('calc-rate');
+    if (rateInput) {
+      rateInput.addEventListener('input', function() {
+        this.dataset.userEdited = 'true';
+      });
+    }
+  });
 
   function handleSignup(e) {
     e.preventDefault();
